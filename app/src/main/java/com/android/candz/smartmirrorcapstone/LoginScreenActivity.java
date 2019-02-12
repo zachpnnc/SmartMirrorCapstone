@@ -24,13 +24,12 @@ public class LoginScreenActivity extends Activity
             public void onClick(View v)
             {
                 if (usernameText.getText().toString().equals("admin") &&
-                passwordText.getText().toString().equals("admin"))
+                        passwordText.getText().toString().equals("admin"))
                 {
                     Toast.makeText(getApplicationContext(), "Valid, Redirecting...", Toast.LENGTH_SHORT).show();
-                }
-                else
+                } else
                 {
-                    Toast.makeText(getApplicationContext(), "Invalid, try again", Toast.LENGTH_SHORT);
+                    Toast.makeText(getApplicationContext(), "Invalid, try again", Toast.LENGTH_SHORT).show();
                 }
             }
         });
