@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity
         if (username.equals("admin") && password.equals("admin"))
         {
             Toast.makeText(getApplicationContext(), "Admin login...", Toast.LENGTH_SHORT).show();
+            setContentView(R.layout.activity_template);
         }
         else
         {

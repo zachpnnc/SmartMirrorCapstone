@@ -7,12 +7,34 @@
     android:theme="@style/AppTheme">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="152dp"
-        android:layout_height="114dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/weatherIcon1"
+        android:layout_width="76dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="364dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeTextV1"
         app:srcCompat="@drawable/weather_cloud" />
+
+    <EditText
+        android:id="@+id/dateTextV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/timeTextV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateTextV1" />
 </android.support.constraint.ConstraintLayout>
