@@ -1,20 +1,23 @@
 package com.android.candz.smartmirrorcapstone;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     private EditText usernameText;
     private EditText passwordText;
     private Button submitButton;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -32,9 +35,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void checkLogin(String username, String password) {
-        if (username.equals("admin") && password.equals("admin")) {
+    private void checkLogin(String username, String password)
+    {
+        if (username.equals("admin") && password.equals("admin"))
+        {
             Toast.makeText(getApplicationContext(), "Admin login...", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(), "Invalid, Try again", Toast.LENGTH_LONG).show();
         }
     }
 }
