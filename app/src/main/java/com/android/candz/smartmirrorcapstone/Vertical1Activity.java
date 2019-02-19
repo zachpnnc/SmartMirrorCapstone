@@ -10,6 +10,7 @@ import java.util.Date;
 
 public class Vertical1Activity extends AppCompatActivity
 {
+
     private EditText dateText;
     private EditText timeText;
     private ImageView weatherIcon;
@@ -17,6 +18,7 @@ public class Vertical1Activity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vertical1);
 

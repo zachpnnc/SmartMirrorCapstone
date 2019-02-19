@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -30,13 +31,16 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+
                 checkLogin(usernameText.getText().toString(), passwordText.getText().toString());
             }
         });
+
     }
 
     private void checkLogin(String username, String password)
     {
+
         if (username.equals("admin") && password.equals("admin"))
         {
             Toast.makeText(getApplicationContext(), "Admin login...", Toast.LENGTH_SHORT).show();
@@ -45,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         //TODO delete this if statement.
         else if (username.equals("") && password.equals(""))
         {
-            Toast.makeText(getApplicationContext(),"Test Login Credentials", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Test Login Credentials", Toast.LENGTH_SHORT).show();
             setContentView(R.layout.activity_template);
         }
         else

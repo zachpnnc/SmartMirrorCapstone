@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 public class TemplateActivity extends AppCompatActivity
 {
+
     private ImageButton template1;
     private ImageButton template2;
     private ImageButton template3;
@@ -18,6 +19,7 @@ public class TemplateActivity extends AppCompatActivity
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_template);
 
@@ -33,6 +35,7 @@ public class TemplateActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+
                 Toast.makeText(getApplicationContext(), "Moving to Template 1", Toast.LENGTH_SHORT).show();
                 setContentView(R.layout.activity_vertical1);
             }
@@ -43,6 +46,7 @@ public class TemplateActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+
                 Toast.makeText(getApplicationContext(), "Moving to Template 2", Toast.LENGTH_SHORT).show();
 //                setContentView(template2View);
             }
@@ -53,6 +57,7 @@ public class TemplateActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+
                 Toast.makeText(getApplicationContext(), "Moving to Template 3", Toast.LENGTH_SHORT).show();
 //                setContentView(template3View);
             }
@@ -63,6 +68,7 @@ public class TemplateActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+
                 Toast.makeText(getApplicationContext(), "Moving to Template 4", Toast.LENGTH_SHORT).show();
 //                setContentView(template4View);
             }
@@ -73,6 +79,7 @@ public class TemplateActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+
                 Toast.makeText(getApplicationContext(), "Moving to Template 5", Toast.LENGTH_SHORT).show();
 //                setContentView(template1View);
             }
@@ -83,6 +90,7 @@ public class TemplateActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+
                 Toast.makeText(getApplicationContext(), "Moving to Template 6", Toast.LENGTH_SHORT).show();
 //                setContentView(template1View);
             }
