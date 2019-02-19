@@ -34,7 +34,7 @@ public class TemplateActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Toast.makeText(getApplicationContext(), "Moving to Template 1", Toast.LENGTH_SHORT).show();
-//                setContentView(template1View);
+                setContentView(R.layout.activity_vertical1);
             }
         });
 

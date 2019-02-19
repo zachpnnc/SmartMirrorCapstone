@@ -27,8 +27,5 @@ public class Vertical1Activity extends AppCompatActivity
         long date;
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String currentDate = dateFormat.format(new Date());
-
-
-
     }
 }
