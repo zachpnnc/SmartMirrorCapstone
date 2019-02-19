@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
         }
         else if (username.equals("") && password.equals(""))
         {
+            //TODO delete this.
             Toast.makeText(getApplicationContext(),"Test Login Credentials", Toast.LENGTH_SHORT).show();
             setContentView(R.layout.activity_template);
         }
