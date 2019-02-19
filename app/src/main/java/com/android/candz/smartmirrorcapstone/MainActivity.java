@@ -42,6 +42,11 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(getApplicationContext(), "Admin login...", Toast.LENGTH_SHORT).show();
             setContentView(R.layout.activity_template);
         }
+        else if (username.equals("") && password.equals(""))
+        {
+            Toast.makeText(getApplicationContext(),"Test Login Credentials", Toast.LENGTH_SHORT).show();
+            setContentView(R.layout.activity_template);
+        }
         else
         {
             Toast.makeText(getApplicationContext(), "Invalid, Try again", Toast.LENGTH_LONG).show();
