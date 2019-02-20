@@ -35,9 +35,10 @@ public class TemplateActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Toast.makeText(getApplicationContext(), "Moving to Template 1", Toast.LENGTH_SHORT).show(); // for testing
 
-                Toast.makeText(getApplicationContext(), "Moving to Template 1", Toast.LENGTH_SHORT).show();
-                setContentView(R.layout.activity_vertical1);
+                //setContentView(R.layout.activity_vertical1);
+                // TODO: Fragment layout instead of activity. I'm researching this.
             }
         });
 
@@ -48,7 +49,6 @@ public class TemplateActivity extends AppCompatActivity
             {
 
                 Toast.makeText(getApplicationContext(), "Moving to Template 2", Toast.LENGTH_SHORT).show();
-//                setContentView(template2View);
             }
         });
 
@@ -59,7 +59,6 @@ public class TemplateActivity extends AppCompatActivity
             {
 
                 Toast.makeText(getApplicationContext(), "Moving to Template 3", Toast.LENGTH_SHORT).show();
-//                setContentView(template3View);
             }
         });
 
@@ -70,7 +69,6 @@ public class TemplateActivity extends AppCompatActivity
             {
 
                 Toast.makeText(getApplicationContext(), "Moving to Template 4", Toast.LENGTH_SHORT).show();
-//                setContentView(template4View);
             }
         });
 
@@ -81,7 +79,6 @@ public class TemplateActivity extends AppCompatActivity
             {
 
                 Toast.makeText(getApplicationContext(), "Moving to Template 5", Toast.LENGTH_SHORT).show();
-//                setContentView(template1View);
             }
         });
 
@@ -92,11 +89,7 @@ public class TemplateActivity extends AppCompatActivity
             {
 
                 Toast.makeText(getApplicationContext(), "Moving to Template 6", Toast.LENGTH_SHORT).show();
-//                setContentView(template1View);
             }
         });
-
     }
-
-
 }
