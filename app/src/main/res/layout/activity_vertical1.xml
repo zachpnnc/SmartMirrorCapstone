@@ -10,8 +10,8 @@
         android:id="@+id/weatherIcon1"
         android:layout_width="76dp"
         android:layout_height="74dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="364dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="360dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeTextV1"
         app:srcCompat="@drawable/weather_cloud" />
@@ -25,7 +25,8 @@
         android:ems="10"
         android:inputType="date"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Date" />
 
     <EditText
         android:id="@+id/timeTextV1"

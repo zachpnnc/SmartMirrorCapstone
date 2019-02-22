@@ -4,4 +4,5 @@
     <string name="mirror">Smart Mirror</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="mirrorViewSelect">Select a Mirror View</string>
 </resources>
