@@ -1,5 +1,6 @@
 package com.android.candz.smartmirrorcapstone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -35,9 +36,11 @@ public class TemplateActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Toast.makeText(getApplicationContext(), "Moving to Template 1", Toast.LENGTH_SHORT).show(); // for testing
 
-                //setContentView(R.layout.activity_vertical1);
+
+                Toast.makeText(TemplateActivity.this, "Moving to Template 1", Toast.LENGTH_SHORT).show(); // for testing
+                Intent intent = new Intent(TemplateActivity.this, Vertical1Activity.class);
+                startActivity(intent);
                 // TODO: Fragment layout instead of activity. I'm researching this.
             }
         });
@@ -47,7 +50,6 @@ public class TemplateActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-
                 Toast.makeText(getApplicationContext(), "Moving to Template 2", Toast.LENGTH_SHORT).show();
             }
         });
@@ -92,4 +94,5 @@ public class TemplateActivity extends AppCompatActivity
             }
         });
     }
+
 }

@@ -13,7 +13,7 @@ public class Vertical1Activity extends AppCompatActivity
 
     private EditText dateText;
     private EditText timeText;
-    private ImageView weatherIcon;
+//    private ImageView weatherIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,10 +24,6 @@ public class Vertical1Activity extends AppCompatActivity
 
         dateText = findViewById(R.id.dateTextV1);
         timeText = findViewById(R.id.timeTextV1);
-        weatherIcon = findViewById(R.id.weatherIcon1);
-
-        long date;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String currentDate = dateFormat.format(new Date());
+        timeText.setText("Test");
     }
 }
