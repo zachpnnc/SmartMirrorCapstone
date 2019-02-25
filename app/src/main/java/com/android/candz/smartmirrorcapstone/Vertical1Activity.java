@@ -67,8 +67,7 @@ public class Vertical1Activity extends AppCompatActivity
                                         String.valueOf(min) + ":" + String.valueOf(sec));
                             }
                         });
-                    }
-                    catch (Exception e)
+                    } catch (Exception e)
                     {
                     }
                 }
