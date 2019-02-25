@@ -16,7 +16,7 @@
         app:layout_constraintTop_toBottomOf="@+id/timeTextV1"
         app:srcCompat="@drawable/weather_cloud" />
 
-    <EditText
+    <TextView
         android:id="@+id/dateTextV1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,11 +24,14 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="date"
+        android:background="@null"
+        android:text="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Date" />
+        tools:text="Date"
+        />
 
-    <EditText
+    <TextView
         android:id="@+id/timeTextV1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,6 +39,8 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="time"
+        android:background="@null"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateTextV1" />
 </android.support.constraint.ConstraintLayout>
