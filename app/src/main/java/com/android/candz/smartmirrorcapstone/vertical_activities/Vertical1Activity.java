@@ -1,9 +1,11 @@
-package com.android.candz.smartmirrorcapstone;
+package com.android.candz.smartmirrorcapstone.vertical_activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import com.android.candz.smartmirrorcapstone.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

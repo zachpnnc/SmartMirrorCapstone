@@ -5,4 +5,5 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="mirrorViewSelect">Select a Mirror View</string>
+    <string name="Register">Register</string>
 </resources>
