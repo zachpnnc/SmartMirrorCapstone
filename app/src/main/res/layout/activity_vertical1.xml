@@ -12,30 +12,33 @@
         android:layout_height="74dp"
         android:layout_marginStart="76dp"
         android:layout_marginTop="360dp"
+        android:contentDescription="@string/weather_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeTextV1"
         app:srcCompat="@drawable/weather_cloud" />
 
-    <EditText
+    <TextView
         android:id="@+id/dateTextV1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:background="@null"
         android:ems="10"
-        android:inputType="date"
+        android:text="@string/WhiteColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Date" />
 
-    <EditText
+    <TextView
         android:id="@+id/timeTextV1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:background="@null"
         android:ems="10"
-        android:inputType="time"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateTextV1" />
 </android.support.constraint.ConstraintLayout>

@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -31,7 +30,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                if (checkLogin(usernameText.getText().toString(), passwordText.getText().toString())) {
+                if (checkLogin(usernameText.getText().toString(), passwordText.getText().toString()))
+                {
                     Intent intent = new Intent(getApplicationContext(), TemplateActivity.class);
                     startActivity(intent);
                 }
@@ -53,8 +53,9 @@ public class MainActivity extends AppCompatActivity
     private boolean checkLogin(String username, String password)
     {
         // TODO: will mess with this later
-        if ((username.equals("admin") && password.equals("admin"))  ||
-                (username.equals("") && password.equals(""))) {
+        if ((username.equals("admin") && password.equals("admin")) ||
+                (username.equals("") && password.equals("")))
+        {
             return true;
         }
         return false;

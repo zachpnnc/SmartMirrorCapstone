@@ -5,5 +5,13 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="mirrorViewSelect">Select a Mirror View</string>
-    <string name="Register">Register</string>
+    <string name="weather_icon">Weather Icon</string>
+    <string name="WhiteColor">#FFFFFF</string>
+    <string name="smartmirroricon">SmartMirrorIcon</string>
+    <string name="template1">Template1</string>
+    <string name="template2">Template2</string>
+    <string name="template3">Template3</string>
+    <string name="template4">Template4</string>
+    <string name="template5">template5</string>
+    <string name="template6">template6</string>
 </resources>
