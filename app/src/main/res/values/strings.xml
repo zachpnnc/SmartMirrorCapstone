@@ -4,6 +4,7 @@
     <string name="mirror">Smart Mirror</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="Register">Register</string>
     <string name="mirrorViewSelect">Select a Mirror View</string>
     <string name="weather_icon">Weather Icon</string>
     <string name="WhiteColor">#FFFFFF</string>
