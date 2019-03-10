@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.android.candz.smartmirrorcapstone.R;
 import com.android.candz.smartmirrorcapstone.WeatherFetch;
+import com.survivingwithandroid.weather.lib.WeatherClient;
+import com.survivingwithandroid.weather.lib.provider.openweathermap.OpenweathermapProviderType;
 
 import org.json.JSONObject;
 
@@ -111,8 +113,20 @@ public class Vertical1Activity extends AppCompatActivity
         //Currently only grabs temperature from Raleigh (RDU).
         //https://w1.weather.gov/xml/current_obs/display.php?stid=KRDU
         //https://code.tutsplus.com/tutorials/create-a-weather-app-on-android--cms-21587
-        WeatherFetch wf = new WeatherFetch();
-        JSONObject json = wf.getJSON(this, zipCode);
+//        WeatherFetch wf = new WeatherFetch();
+//        JSONObject json = wf.getJSON(this, zipCode);
+//
+//
+//      WeatherLib is an option to interface with the OpenWeatherMap API
+//      http://survivingwithandroid.github.io/WeatherLib/android_weatherlib_start.html
+//
+//        WeatherClient.ClientBuilder builder = new WeatherClient.ClientBuilder();
+//
+//        WeatherClient client = builder.attach(getActivity())
+//                .provider(new OpenweathermapProviderType())
+//                .httpClient(com.survivingwithandroid.weather.lib.client.volley.WeatherClientDefault.class)
+//                .config(config)
+//                .build();
         return "TEST";
     }
 
