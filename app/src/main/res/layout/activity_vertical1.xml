@@ -10,8 +10,8 @@
         android:id="@+id/weatherIcon1"
         android:layout_width="76dp"
         android:layout_height="74dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="552dp"
         android:contentDescription="@string/weather_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeTextV1"
@@ -25,7 +25,6 @@
         android:layout_marginTop="32dp"
         android:background="@null"
         android:ems="10"
-        android:text="@string/WhiteColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Date" />
@@ -38,7 +37,19 @@
         android:layout_marginTop="16dp"
         android:background="@null"
         android:ems="10"
-        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateTextV1" />
+
+    <TextView
+        android:id="@+id/weatherText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="552dp"
+        android:layout_marginEnd="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/weatherIcon1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeTextV1" />
 </android.support.constraint.ConstraintLayout>
