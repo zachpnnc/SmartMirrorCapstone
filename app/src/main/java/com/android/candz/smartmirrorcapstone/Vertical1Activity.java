@@ -41,7 +41,7 @@ public class Vertical1Activity extends AppCompatActivity
 
         dateText.setText(currentDate());
         setBackgroundColor();
-        setTextColor(dateText, timeText);
+//        setTextColor(dateText, timeText);
         timer();
 
         //Determine zip Code of user
@@ -145,6 +145,8 @@ public class Vertical1Activity extends AppCompatActivity
         //Crashes here
         String temperature = jsonObject.getAsJsonObject("main").get("temp").toString();
 
+        //Format the string so that only the relevant digits are shown.
+        // temperature = String.
         return temperature;
     }
 
