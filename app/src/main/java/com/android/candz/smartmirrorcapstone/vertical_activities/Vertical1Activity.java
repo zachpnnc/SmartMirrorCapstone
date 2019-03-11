@@ -10,8 +10,9 @@ import android.widget.TextView;
 
 import com.android.candz.smartmirrorcapstone.R;
 import com.android.candz.smartmirrorcapstone.WeatherFetch;
-import com.survivingwithandroid.weather.lib.WeatherClient;
-import com.survivingwithandroid.weather.lib.provider.openweathermap.OpenweathermapProviderType;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.json.JSONObject;
 
@@ -43,7 +44,6 @@ public class Vertical1Activity extends AppCompatActivity
         weatherText = findViewById(R.id.weatherText1);
 
 
-
         dateText.setText(currentDate());
         setBackgroundColor();
         setTextColor(dateText, timeText);
@@ -52,6 +52,7 @@ public class Vertical1Activity extends AppCompatActivity
         //Determine zip Code of user
 
         weatherText.setText(getCurrentWeather("27616"));
+        weatherText.setTextColor(Color.WHITE);
     }
 
 
@@ -81,7 +82,8 @@ public class Vertical1Activity extends AppCompatActivity
                                         String.valueOf(min) + ":" + String.valueOf(sec));
                             }
                         });
-                    } catch (Exception e)
+                    }
+                    catch (Exception e)
                     {
                     }
                 }
@@ -120,14 +122,35 @@ public class Vertical1Activity extends AppCompatActivity
 //      WeatherLib is an option to interface with the OpenWeatherMap API
 //      http://survivingwithandroid.github.io/WeatherLib/android_weatherlib_start.html
 //
-//        WeatherClient.ClientBuilder builder = new WeatherClient.ClientBuilder();
+//        WeatherConfig config = new WeatherConfig();
+//        config.unitSystem = WeatherConfig.UNIT_SYSTEM.I;
+//        config.lang = "en";
+//        config.ApiKey = "28b3d92963fef3ce6717737997d698b8";
+//        config.maxResult = 1;
+//        config.numDays = 1;
 //
-//        WeatherClient client = builder.attach(getActivity())
-//                .provider(new OpenweathermapProviderType())
-//                .httpClient(com.survivingwithandroid.weather.lib.client.volley.WeatherClientDefault.class)
-//                .config(config)
-//                .build();
-        return "TEST";
+//        try
+//        {
+//            WeatherClient client = (new WeatherClient.ClientBuilder()).attach(this)
+//                    .provider(new OpenweathermapProviderType())
+//                    .httpClient(com.survivingwithandroid.weather.lib.client.volley.WeatherClientDefault.class)
+//                    .config(config)
+//                    .build();
+//
+//            client.getCurrentCondition();
+//        }
+//        catch (Throwable t)
+//        {
+//            t.printStackTrace();
+//        } WeatherClient.ClientBuilder builder = new WeatherClient.ClientBuilder();
+
+        String jsonString = WeatherFetch.getWeatherJsonZip("27616");
+
+        JsonObject jsonObject = new JsonParser().parse(jsonString).getAsJsonObject();
+        //Crashes here
+        String temperature = jsonObject.getAsJsonObject("main").get("temp").toString();
+
+        return temperature;
     }
 
 }
