@@ -120,8 +120,7 @@ public class WeatherFetch extends Activity
         catch (Throwable t)
         {
             t.printStackTrace();
-        }
-        finally
+        } finally
         {
             try
             {
@@ -141,7 +140,6 @@ public class WeatherFetch extends Activity
 
         return "Weather Data unable to be retrieved";
     }
-
 
 
 }
