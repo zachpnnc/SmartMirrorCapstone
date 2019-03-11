@@ -1,4 +1,4 @@
-package com.android.candz.smartmirrorcapstone.vertical_activities;
+package com.android.candz.smartmirrorcapstone;
 
 import android.graphics.Color;
 import android.os.Bundle;

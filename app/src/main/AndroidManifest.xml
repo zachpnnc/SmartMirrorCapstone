@@ -25,12 +25,13 @@
         <activity android:name=".TemplateActivity">
 
         </activity>
-        <activity android:name=".vertical_activities.Vertical1Activity">
+        <activity android:name=".Vertical1Activity">
 
         </activity>
         <activity android:name=".RegisterActivity">
 
         </activity>
+        <activity android:name=".UserInfoActivity" />
 
 
     </application>

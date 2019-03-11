@@ -1,5 +1,6 @@
 package com.android.candz.smartmirrorcapstone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,7 +15,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText password;
     private EditText password_confirm;
     private EditText email;
-
+    private Button user_info;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,8 +28,17 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.password1);
         password_confirm = findViewById(R.id.password2);
         email = findViewById(R.id.email);
+        user_info = findViewById(R.id.user_info);
 
         addData();
+
+        user_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RegisterActivity.this, UserInfoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void addData() {
