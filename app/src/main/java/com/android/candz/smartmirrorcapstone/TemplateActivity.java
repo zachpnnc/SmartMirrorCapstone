@@ -7,13 +7,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.android.candz.smartmirrorcapstone.vertical_activities.Vertical1Activity;
-import com.android.candz.smartmirrorcapstone.vertical_activities.Vertical2Activity;
-import com.android.candz.smartmirrorcapstone.vertical_activities.Vertical3Activity;
-import com.android.candz.smartmirrorcapstone.vertical_activities.Vertical4Activity;
-import com.android.candz.smartmirrorcapstone.vertical_activities.Vertical5Activity;
-import com.android.candz.smartmirrorcapstone.vertical_activities.Vertical6Activity;
-
 public class TemplateActivity extends AppCompatActivity
 {
 
@@ -55,8 +48,6 @@ public class TemplateActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Toast.makeText(getApplicationContext(), "Moving to Template 2", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(TemplateActivity.this, Vertical2Activity.class);
-                startActivity(intent);
             }
         });
 
@@ -67,8 +58,6 @@ public class TemplateActivity extends AppCompatActivity
             {
 
                 Toast.makeText(getApplicationContext(), "Moving to Template 3", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(TemplateActivity.this, Vertical3Activity.class);
-                startActivity(intent);
             }
         });
 
@@ -79,8 +68,6 @@ public class TemplateActivity extends AppCompatActivity
             {
 
                 Toast.makeText(getApplicationContext(), "Moving to Template 4", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(TemplateActivity.this, Vertical4Activity.class);
-                startActivity(intent);
             }
         });
 
@@ -91,8 +78,6 @@ public class TemplateActivity extends AppCompatActivity
             {
 
                 Toast.makeText(getApplicationContext(), "Moving to Template 5", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(TemplateActivity.this, Vertical5Activity.class);
-                startActivity(intent);
             }
         });
 
@@ -103,8 +88,6 @@ public class TemplateActivity extends AppCompatActivity
             {
 
                 Toast.makeText(getApplicationContext(), "Moving to Template 6", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(TemplateActivity.this, Vertical6Activity.class);
-                startActivity(intent);
             }
         });
     }
