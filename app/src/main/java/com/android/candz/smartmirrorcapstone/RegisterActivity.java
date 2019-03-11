@@ -35,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         user_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // TODO: make only clickable if >0 users registers
                 Intent intent = new Intent(RegisterActivity.this, UserInfoActivity.class);
                 startActivity(intent);
             }
