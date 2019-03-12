@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.StrictMode;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -139,6 +142,19 @@ public class WeatherFetch extends Activity
         }
 
         return "Weather Data unable to be retrieved";
+    }
+
+    public static JsonObject convertJsonStringtoJsonObject(String jsonString)
+    {
+        return new JsonParser().parse(jsonString).getAsJsonObject();
+    }
+
+    public static String fetchCurrentTemperature(JsonObject weatherJson)
+    {
+        String unformattedTemp = weatherJson.getAsJsonObject("main").get("temp").toString();
+        int length = unformattedTemp.length();
+        String formattedTemp = unformattedTemp.substring(0, length - 3);
+        return formattedTemp;
     }
 
 

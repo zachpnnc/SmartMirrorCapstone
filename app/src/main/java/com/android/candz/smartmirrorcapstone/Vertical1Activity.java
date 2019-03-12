@@ -16,6 +16,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import static com.android.candz.smartmirrorcapstone.WeatherFetch.fetchCurrentTemperature;
+
 public class Vertical1Activity extends AppCompatActivity
 {
 
@@ -141,13 +143,15 @@ public class Vertical1Activity extends AppCompatActivity
 
         String jsonString = WeatherFetch.getWeatherJsonZip("27616");
 
-        JsonObject jsonObject = new JsonParser().parse(jsonString).getAsJsonObject();
-        //Crashes here
-        String temperature = jsonObject.getAsJsonObject("main").get("temp").toString();
+        JsonObject jsonObject = WeatherFetch.convertJsonStringtoJsonObject(jsonString);
 
+
+        //Crashes here
+        String temperature = WeatherFetch.fetchCurrentTemperature(jsonObject);
+        String degreeSymbol  = "\u00b0";
         //Format the string so that only the relevant digits are shown.
         // temperature = String.
-        return temperature;
+        return temperature + degreeSymbol;
     }
 
 }
