@@ -55,9 +55,12 @@ public class Vertical1Activity extends AppCompatActivity
         //Possible values are Clear sky, few clouds, scattered clouds, broken clouds,
         //shower rain, rain, thunderstorm, snow, mist
 
-        String weatherTypeIconId = getCurrentWeatherType();
-        setWeatherTypeIcon(weatherTypeIconId);
 
+        if (confirmWeatherData())
+        {
+            String weatherTypeIconId = getCurrentWeatherType();
+            setWeatherTypeIcon(weatherTypeIconId);
+        }
 
     }
 
@@ -90,7 +93,8 @@ public class Vertical1Activity extends AppCompatActivity
                                 timeText.setText(String.valueOf(hour) + ":" + String.valueOf(min) + ":" + String.valueOf(sec));
                             }
                         });
-                    } catch (Exception e)
+                    }
+                    catch (Exception e)
                     {
                     }
                 }
@@ -177,34 +181,30 @@ public class Vertical1Activity extends AppCompatActivity
     private void setWeatherTypeIcon(String weatherTypeIconId)
     {
 
-
+        /**
+         * This is needed because drawable file names cannot contain numbers.
+         * 01d = a
+         * 01n = aa
+         * 02d = aaa
+         * 02n = aaaa
+         * 03d = b
+         * 03n = bb
+         * 04d = bbb
+         * 04n = bbbb
+         * 09d = c
+         * 09n = cc
+         * 10d = ccc
+         * 10n = cccc
+         * 11d = d
+         * 11n = dd
+         * 13d = ddd
+         * 13n = dddd
+         * 50d = e
+         * 50n = ee
+         */
 
         switch (weatherTypeIconId)
         {
-            /**
-             * This is needed because drawable file names cannot contain numbers.
-             * 01d = a
-             * 01n = aa
-             * 02d = aaa
-             * 02n = aaaa
-             * 03d = b
-             * 03n = bb
-             * 04d = bbb
-             * 04n = bbbb
-             * 09d = c
-             * 09n = cc
-             * 10d = ccc
-             * 10n = cccc
-             * 11d = d
-             * 11n = dd
-             * 13d = ddd
-             * 13n = dddd
-             * 50d = e
-             * 50n = ee
-             *
-             *
-             */
-
             case "01d":
                 weatherIcon.setImageResource(R.drawable.a);
                 break;
@@ -263,6 +263,12 @@ public class Vertical1Activity extends AppCompatActivity
                 weatherIcon.setImageResource(R.drawable.weather_cloud);
 
         }
+    }
+
+    public boolean confirmWeatherData()
+    {
+
+        return WeatherFetch.confirmWeatherData(jsonWeatherData);
     }
 
 }

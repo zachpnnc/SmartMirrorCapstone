@@ -80,7 +80,8 @@ public class WeatherFetch extends Activity
             }
 
             return data;
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             return null;
         }
@@ -120,7 +121,8 @@ public class WeatherFetch extends Activity
             con.disconnect();
 //            return buffer.toString();
             return line;
-        } catch (Throwable t)
+        }
+        catch (Throwable t)
         {
             t.printStackTrace();
         } finally
@@ -128,13 +130,15 @@ public class WeatherFetch extends Activity
             try
             {
                 is.close();
-            } catch (Throwable t)
+            }
+            catch (Throwable t)
             {
             }
             try
             {
                 con.disconnect();
-            } catch (Throwable t)
+            }
+            catch (Throwable t)
             {
             }
         }
@@ -172,6 +176,17 @@ public class WeatherFetch extends Activity
         iconId = iconId.replaceAll("^\"|\"$", "");
 
         return iconId;
+    }
+
+    public static boolean confirmWeatherData(JsonObject weatherData)
+    {
+
+        String weatherConditionCode = weatherData.get("cod").toString();
+        if (weatherConditionCode.equals("200"))
+        {
+            return true;
+        }
+        return false;
     }
 
 
