@@ -1,8 +1,6 @@
 package com.android.candz.smartmirrorcapstone;
 
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
