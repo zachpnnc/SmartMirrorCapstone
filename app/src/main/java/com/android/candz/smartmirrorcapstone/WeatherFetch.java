@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.StrictMode;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -78,8 +81,7 @@ public class WeatherFetch extends Activity
             }
 
             return data;
-        }
-        catch (Exception e)
+        } catch (Exception e)
         {
             return null;
         }
@@ -119,8 +121,7 @@ public class WeatherFetch extends Activity
             con.disconnect();
 //            return buffer.toString();
             return line;
-        }
-        catch (Throwable t)
+        } catch (Throwable t)
         {
             t.printStackTrace();
         } finally
@@ -128,15 +129,13 @@ public class WeatherFetch extends Activity
             try
             {
                 is.close();
-            }
-            catch (Throwable t)
+            } catch (Throwable t)
             {
             }
             try
             {
                 con.disconnect();
-            }
-            catch (Throwable t)
+            } catch (Throwable t)
             {
             }
         }
@@ -146,15 +145,34 @@ public class WeatherFetch extends Activity
 
     public static JsonObject convertJsonStringtoJsonObject(String jsonString)
     {
+
         return new JsonParser().parse(jsonString).getAsJsonObject();
     }
 
     public static String fetchCurrentTemperature(JsonObject weatherJson)
     {
+
         String unformattedTemp = weatherJson.getAsJsonObject("main").get("temp").toString();
         int length = unformattedTemp.length();
         String formattedTemp = unformattedTemp.substring(0, length - 3);
         return formattedTemp;
+    }
+
+    public static String fetchCurrentWeatherType(JsonObject weatherJson)
+    {
+        //Takes the weatherJson and grabs the weather Array that it contains.
+        JsonArray array = weatherJson.getAsJsonArray("weather");
+        //Converts the 0th element of the array into an element.
+        JsonElement JsonArrayElement = array.get(0);
+        //Converts the element into an object.
+        JsonObject JsonArrayElementObject = (JsonObject) JsonArrayElement;
+        //Converts the "icon" value into a String value and returns that.
+        String iconId = JsonArrayElementObject.get("icon").toString();
+
+        //Strips iconId of the quotes that it gets from the Json.
+        iconId = iconId.replaceAll("^\"|\"$", "");
+
+        return iconId;
     }
 
 
