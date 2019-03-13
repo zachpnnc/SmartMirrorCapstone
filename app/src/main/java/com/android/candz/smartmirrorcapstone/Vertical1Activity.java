@@ -24,6 +24,8 @@ public class Vertical1Activity extends AppCompatActivity
     private TextView weatherText;
     private ImageView weatherIcon;
     private JsonObject jsonWeatherData;
+    private int iterator;
+    private String zipCode;
     boolean run = true; //set it to false if you want to stop the timer
     Handler mHandler = new Handler();
 
@@ -44,10 +46,10 @@ public class Vertical1Activity extends AppCompatActivity
         dateText.setText(currentDate());
         setBackgroundColor();
         timer();
-
+        zipCode = "27616";
         //Prompt user to enter a ZipCode to pull weather information from.
 
-        weatherText.setText(getCurrentWeather("27616"));
+        weatherText.setText(getCurrentWeather(zipCode));
         weatherText.setTextColor(Color.WHITE);
 
         //Change the Image that WeatherIcon displays based on the type of weather that is currently
@@ -58,8 +60,7 @@ public class Vertical1Activity extends AppCompatActivity
 
         if (confirmWeatherData())
         {
-            String weatherTypeIconId = getCurrentWeatherType();
-            setWeatherTypeIcon(weatherTypeIconId);
+            setWeatherTypeIcon(getCurrentWeatherType());
         }
 
     }
@@ -67,30 +68,37 @@ public class Vertical1Activity extends AppCompatActivity
 
     public void timer()
     {
+        iterator = 1;
 
         new Thread(new Runnable()
         {
             @Override
             public void run()
             {
-
                 while (run)
                 {
+
                     try
                     {
                         Thread.sleep(1000);
                         mHandler.post(new Runnable()
                         {
 
+
                             @Override
                             public void run()
                             {
-
+                                iterator++;
                                 Calendar c = Calendar.getInstance();
                                 int sec = c.get(Calendar.SECOND);
                                 int min = c.get(Calendar.MINUTE);
                                 int hour = c.get(Calendar.HOUR);
                                 timeText.setText(String.valueOf(hour) + ":" + String.valueOf(min) + ":" + String.valueOf(sec));
+                                if (iterator % 1000 == 0)
+                                {
+                                    updateWeatherData();
+                                }
+
                             }
                         });
                     }
@@ -182,7 +190,10 @@ public class Vertical1Activity extends AppCompatActivity
     {
 
         /**
-         * This is needed because drawable file names cannot contain numbers.
+         * previous filename = New filename.
+         * R.drawable.fileName won't recognize fileName if filename contains a number.  That is the
+         * the reason that the file names were changed.
+         *
          * 01d = a
          * 01n = aa
          * 02d = aaa
@@ -201,6 +212,8 @@ public class Vertical1Activity extends AppCompatActivity
          * 13n = dddd
          * 50d = e
          * 50n = ee
+         *
+         * 50d and 50n may be a problem with the black background.
          */
 
         switch (weatherTypeIconId)
@@ -269,6 +282,12 @@ public class Vertical1Activity extends AppCompatActivity
     {
 
         return WeatherFetch.confirmWeatherData(jsonWeatherData);
+    }
+
+    public void updateWeatherData()
+    {
+        weatherText.setText(getCurrentWeather(zipCode));
+        setWeatherTypeIcon(getCurrentWeatherType());
     }
 
 }
