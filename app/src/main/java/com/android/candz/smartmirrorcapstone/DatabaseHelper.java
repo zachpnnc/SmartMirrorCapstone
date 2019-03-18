@@ -58,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getItemID(String name) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         String query = "SELECT " + COL1 + " FROM " + TABLE_NAME +
-                " WHERE " + COL2 + " = " + name; // + "'";
+                " WHERE " + COL2 + " = " + "'" + name + "'";
         return sqLiteDatabase.rawQuery(query, null);
     }
 

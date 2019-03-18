@@ -40,11 +40,12 @@ public class EditUserInfoActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String getName = edit_name.getText().toString();
-                if (getName.equals("")) {
+                String newName = edit_name.getText().toString();
+                if (newName.equals("")) {
                     Toast.makeText(EditUserInfoActivity.this, "Please enter a name.", Toast.LENGTH_SHORT).show();
                 } else {
-                    databaseHelper.updateName(getName, name, id);
+                    databaseHelper.updateName(name, newName, id);
+                    Toast.makeText(EditUserInfoActivity.this, "Data saved successfully.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
