@@ -110,14 +110,14 @@ public class WeatherFetch extends Activity
             //This is where the try will fail if it does fail.
             con.connect();
 
-            StringBuffer buffer = new StringBuffer();
+//            StringBuffer buffer = new StringBuffer();
             is = con.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             String line = br.readLine();
 //            while ((line = br.readLine()) != null)
 //                buffer.append(line + "");
-
             is.close();
+
             con.disconnect();
 //            return buffer.toString();
             return line;
@@ -125,7 +125,8 @@ public class WeatherFetch extends Activity
         catch (Throwable t)
         {
             t.printStackTrace();
-        } finally
+        }
+        finally
         {
             try
             {

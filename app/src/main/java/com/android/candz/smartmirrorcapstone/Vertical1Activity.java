@@ -63,6 +63,8 @@ public class Vertical1Activity extends AppCompatActivity
             setWeatherTypeIcon(getCurrentWeatherType());
         }
 
+        handleNewsInformation();
+
     }
 
 
@@ -288,6 +290,13 @@ public class Vertical1Activity extends AppCompatActivity
     {
         weatherText.setText(getCurrentWeather(zipCode));
         setWeatherTypeIcon(getCurrentWeatherType());
+    }
+
+    public void handleNewsInformation()
+    {
+//        NewsFetch fetchNews = new NewsFetch();
+        String[] headlineArray = NewsFetch.getNewsHeadlines();
+        //Add news headlines to a textbox.
     }
 
 }
