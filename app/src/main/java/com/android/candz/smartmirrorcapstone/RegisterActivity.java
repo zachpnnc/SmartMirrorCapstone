@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements Login {
     private DatabaseHelper userDB;
     private Button registerConfirmBtn;
     private EditText username;
@@ -46,25 +46,29 @@ public class RegisterActivity extends AppCompatActivity {
         registerConfirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean insertData = userDB.addData(username.getText().toString(),
-                        password.getText().toString(),
-                        email.getText().toString());
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
 
-                if (insertData == true) {
-                    Toast.makeText(RegisterActivity.this, "Data insert successful.", Toast.LENGTH_SHORT).show();
+                if (checkLogin(user, pass)) {
+                    boolean insertData = userDB.addData(user, pass,
+                            email.getText().toString());
+
+                    if (insertData) {
+                        Toast.makeText(RegisterActivity.this, "Data saved successful.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "Data was not saved successfully.", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    Toast.makeText(RegisterActivity.this, "Data was not inserted successfully.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Passwords must match.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    // TODO: Could definitely make this into an abstract method
-    //       that gets implemented here.
-    //       Or, we could have an abstract class or interface.
-    private boolean checkLogin(String username, String password)
+    // checks to see if the password is valid
+    public boolean checkLogin(String username, String password)
     {
-        if (password.equals(password_confirm)) {
+        if (password.equals(password_confirm.getText().toString())) {
             return true;
         }
         return false;
