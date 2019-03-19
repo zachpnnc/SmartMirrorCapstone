@@ -1,11 +1,15 @@
 package com.android.candz.smartmirrorcapstone;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.JsonObject;
@@ -23,7 +27,11 @@ public class Vertical1Activity extends AppCompatActivity
     private TextView timeText;
     private TextView weatherText;
     private ImageView weatherIcon;
+    private Button[] headlineButtons;
+    private LinearLayout linearLayout;
     private JsonObject jsonWeatherData;
+
+
     private int iterator;
     private String zipCode;
     boolean run = true; //set it to false if you want to stop the timer
@@ -41,7 +49,15 @@ public class Vertical1Activity extends AppCompatActivity
         timeText = findViewById(R.id.timeTextV1);
         weatherText = findViewById(R.id.weatherText1);
         weatherIcon = findViewById(R.id.weatherIcon1);
-
+        linearLayout = findViewById(R.id.headlineContainer);
+//        Handles instantiating Headlines.
+        headlineButtons = new Button[5];
+        headlineButtons[0] = findViewById(R.id.headline1);
+        headlineButtons[1] = findViewById(R.id.headline2);
+        headlineButtons[2] = findViewById(R.id.headline3);
+        headlineButtons[3] = findViewById(R.id.headline4);
+        headlineButtons[4] = findViewById(R.id.headline5);
+////        handleViews();
 
         dateText.setText(currentDate());
         setBackgroundColor();
@@ -63,13 +79,26 @@ public class Vertical1Activity extends AppCompatActivity
             setWeatherTypeIcon(getCurrentWeatherType());
         }
 
-        handleNewsInformation();
+        try
+        {
+            handleNewsInformation();
+        }
+        catch (Exception e)
+        {
+
+        }
 
     }
+//
+//    public void handleViews()
+//    {
+//
+//    }
 
 
     public void timer()
     {
+
         iterator = 1;
 
         new Thread(new Runnable()
@@ -77,6 +106,7 @@ public class Vertical1Activity extends AppCompatActivity
             @Override
             public void run()
             {
+
                 while (run)
                 {
 
@@ -90,6 +120,7 @@ public class Vertical1Activity extends AppCompatActivity
                             @Override
                             public void run()
                             {
+
                                 iterator++;
                                 Calendar c = Calendar.getInstance();
                                 int sec = c.get(Calendar.SECOND);
@@ -288,15 +319,72 @@ public class Vertical1Activity extends AppCompatActivity
 
     public void updateWeatherData()
     {
+
         weatherText.setText(getCurrentWeather(zipCode));
         setWeatherTypeIcon(getCurrentWeatherType());
     }
 
-    public void handleNewsInformation()
+    public void handleNewsInformation() throws InterruptedException
     {
 //        NewsFetch fetchNews = new NewsFetch();
-        String[] headlineArray = NewsFetch.getNewsHeadlines();
-        //Add news headlines to a textbox.
+        final String[][] headlineArray = NewsFetch.getNewsHeadlines();
+
+        //Add news headlines to a TextView.
+        for (int i = 0; i < 5; i++)
+        {
+            headlineButtons[i].setText(headlineArray[0][i]);
+        }
+
+        headlineButtons[0].setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][0]));
+                startActivity(browserIntent);
+            }
+        });
+
+        headlineButtons[1].setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][1]));
+                startActivity(browserIntent);
+            }
+        });
+
+        headlineButtons[2].setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][2]));
+                startActivity(browserIntent);
+            }
+        });
+
+        headlineButtons[3].setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][3]));
+                startActivity(browserIntent);
+            }
+        });
+
+        headlineButtons[4].setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][4]));
+                startActivity(browserIntent);
+            }
+        });
+
     }
 
 }

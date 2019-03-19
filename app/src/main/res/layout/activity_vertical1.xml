@@ -23,8 +23,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:background="@null"
-        android:textColor="#FFFFFF"
         android:ems="10"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Date" />
@@ -35,9 +35,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:textColor="#FFFFFF"
         android:background="@null"
         android:ems="10"
+        android:text="Time"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateTextV1" />
 
@@ -52,4 +53,51 @@
         android:textSize="64sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeTextV1" />
+
+    <LinearLayout
+        android:id="@+id/headlineContainer"
+        android:layout_width="225dp"
+        android:layout_height="275dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="440dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/weatherIcon1"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/headline1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/headline2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#A9A9A9" />
+
+        <Button
+            android:id="@+id/headline3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/headline4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#A9A9A9" />
+
+        <Button
+            android:id="@+id/headline5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
