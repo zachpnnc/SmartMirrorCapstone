@@ -75,7 +75,7 @@ public class NewsFetch
                 if (jsonString == "News Data unable to be retrieved")
                     jsonString = openConnectionToNewsAPI_GET();
                 if (jsonString == "News Data unable to be retrieved")
-                    Thread.sleep(500);
+                    Thread.sleep(5000);
             }
         }
 
