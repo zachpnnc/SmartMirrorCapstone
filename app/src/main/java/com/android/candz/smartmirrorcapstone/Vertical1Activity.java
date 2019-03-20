@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,8 +24,8 @@ import java.util.Date;
 public class Vertical1Activity extends AppCompatActivity
 {
 
-    private TextView dateText;
-    private TextView timeText;
+    private EditText dateText;
+    private EditText timeText;
     private TextView weatherText;
     private ImageView weatherIcon;
     private Button[] headlineButtons;
@@ -45,19 +46,8 @@ public class Vertical1Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vertical1);
 
-        dateText = findViewById(R.id.dateTextV1);
-        timeText = findViewById(R.id.timeTextV1);
-        weatherText = findViewById(R.id.weatherText1);
-        weatherIcon = findViewById(R.id.weatherIcon1);
-        linearLayout = findViewById(R.id.headlineContainer);
-//        Handles instantiating Headlines.
-        headlineButtons = new Button[5];
-        headlineButtons[0] = findViewById(R.id.headline1);
-        headlineButtons[1] = findViewById(R.id.headline2);
-        headlineButtons[2] = findViewById(R.id.headline3);
-        headlineButtons[3] = findViewById(R.id.headline4);
-        headlineButtons[4] = findViewById(R.id.headline5);
-////        handleViews();
+        //Handles instantiating all of the .XML items.
+        handleViews();
 
         dateText.setText(currentDate());
         setBackgroundColor();
@@ -89,11 +79,24 @@ public class Vertical1Activity extends AppCompatActivity
         }
 
     }
-//
-//    public void handleViews()
-//    {
-//
-//    }
+
+    public void handleViews()
+    {
+        dateText = findViewById(R.id.dateTextV1);
+        timeText = findViewById(R.id.timeTextV1);
+
+
+        weatherText = findViewById(R.id.weatherText1);
+        weatherIcon = findViewById(R.id.weatherIcon1);
+        linearLayout = findViewById(R.id.headlineContainer);
+        //Handles instantiating Headlines and adds them to an array.
+        headlineButtons = new Button[5];
+        headlineButtons[0] = findViewById(R.id.headline1);
+        headlineButtons[1] = findViewById(R.id.headline2);
+        headlineButtons[2] = findViewById(R.id.headline3);
+        headlineButtons[3] = findViewById(R.id.headline4);
+        headlineButtons[4] = findViewById(R.id.headline5);
+    }
 
 
     public void timer()
@@ -120,13 +123,18 @@ public class Vertical1Activity extends AppCompatActivity
                             @Override
                             public void run()
                             {
-
+                                String BLANK = "\u0020";
                                 iterator++;
                                 Calendar c = Calendar.getInstance();
                                 int sec = c.get(Calendar.SECOND);
                                 int min = c.get(Calendar.MINUTE);
                                 int hour = c.get(Calendar.HOUR);
+                                timeText.setText(BLANK);
+
+//                                timeText.getText().clear();
                                 timeText.setText(String.valueOf(hour) + ":" + String.valueOf(min) + ":" + String.valueOf(sec));
+
+
                                 if (iterator % 1000 == 0)
                                 {
                                     updateWeatherData();

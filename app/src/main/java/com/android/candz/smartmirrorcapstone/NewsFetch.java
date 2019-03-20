@@ -67,6 +67,7 @@ public class NewsFetch
     {
 
         String jsonString = openConnectionToNewsAPI_POST();
+//        String jsonTest = openConnectionToNewsAPI_GET();
         if (jsonString == "News Data unable to be retrieved")
         {
             jsonString = openConnectionToNewsAPI_GET();
@@ -134,6 +135,8 @@ public class NewsFetch
 
             //This is where the try will fail if it does fail.
             connection.connect();
+            int i = connection.getResponseCode();
+
 
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK)
                 is = connection.getErrorStream();
