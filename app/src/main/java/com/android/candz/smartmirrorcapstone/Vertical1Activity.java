@@ -329,61 +329,77 @@ public class Vertical1Activity extends AppCompatActivity
 //        NewsFetch fetchNews = new NewsFetch();
         final String[][] headlineArray = NewsFetch.getNewsHeadlines();
 
-        //Add news headlines to a TextView.
-        for (int i = 0; i < 5; i++)
+        if (headlineArray[0][0] == "Currently Rate Limited by NewsAPI")
         {
-            headlineButtons[i].setText(headlineArray[0][i]);
+            for (int i = 0; i < 5; i++)
+            {
+                headlineButtons[i].setText("Currently Rate Limited by NewsAPI");
+            }
         }
-
-        headlineButtons[0].setOnClickListener(new View.OnClickListener()
+        else
         {
-            @Override
-            public void onClick(View v)
-            {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][0]));
-                startActivity(browserIntent);
-            }
-        });
 
-        headlineButtons[1].setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
+            //Add news headlines to a TextView.
+            for (int i = 0; i < 5; i++)
             {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][1]));
-                startActivity(browserIntent);
+                headlineButtons[i].setText(headlineArray[0][i]);
             }
-        });
 
-        headlineButtons[2].setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
+            headlineButtons[0].setOnClickListener(new View.OnClickListener()
             {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][2]));
-                startActivity(browserIntent);
-            }
-        });
+                @Override
+                public void onClick(View v)
+                {
 
-        headlineButtons[3].setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][3]));
-                startActivity(browserIntent);
-            }
-        });
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][0]));
+                    startActivity(browserIntent);
+                }
+            });
 
-        headlineButtons[4].setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
+            headlineButtons[1].setOnClickListener(new View.OnClickListener()
             {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][4]));
-                startActivity(browserIntent);
-            }
-        });
+                @Override
+                public void onClick(View v)
+                {
+
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][1]));
+                    startActivity(browserIntent);
+                }
+            });
+
+            headlineButtons[2].setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][2]));
+                    startActivity(browserIntent);
+                }
+            });
+
+            headlineButtons[3].setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][3]));
+                    startActivity(browserIntent);
+                }
+            });
+
+            headlineButtons[4].setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][4]));
+                    startActivity(browserIntent);
+                }
+            });
+        }
 
     }
 

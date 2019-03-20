@@ -12,11 +12,16 @@ import com.kwabenaberko.newsapilib.models.request.TopHeadlinesRequest;
 import com.kwabenaberko.newsapilib.models.response.ArticleResponse;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import static java.lang.Thread.sleep;
 
@@ -37,22 +42,22 @@ public class NewsFetch
 
         NewsApiClient newsApiClient = new NewsApiClient(NEWS_API_API_KEY_ALONE);
 
-        newsApiClient.getEverything(
-                new EverythingRequest.Builder()
-                        .q("trump")
-                        .build(),
-                new NewsApiClient.ArticlesResponseCallback() {
-                    @Override
-                    public void onSuccess(ArticleResponse response) {
-                        System.out.println(response.getArticles().get(0).getTitle());
-                    }
+        newsApiClient.getEverything(new EverythingRequest.Builder().q("trump").build(), new NewsApiClient.ArticlesResponseCallback()
+        {
+            @Override
+            public void onSuccess(ArticleResponse response)
+            {
 
-                    @Override
-                    public void onFailure(Throwable throwable) {
-                        System.out.println(throwable.getMessage());
-                    }
-                }
-        );
+                System.out.println(response.getArticles().get(0).getTitle());
+            }
+
+            @Override
+            public void onFailure(Throwable throwable)
+            {
+
+                System.out.println(throwable.getMessage());
+            }
+        });
 
         return null;
     }
@@ -60,8 +65,6 @@ public class NewsFetch
 
     public static String[][] getNewsHeadlines() throws InterruptedException
     {
-
-//        test();
 
         String jsonString = openConnectionToNewsAPI_POST();
         if (jsonString == "News Data unable to be retrieved")
@@ -71,12 +74,25 @@ public class NewsFetch
             while (jsonString == "News Data unable to be retrieved")
             {
                 if (jsonString == "News Data unable to be retrieved")
+                {
                     jsonString = openConnectionToNewsAPI_POST();
+                }
                 if (jsonString == "News Data unable to be retrieved")
+                {
                     jsonString = openConnectionToNewsAPI_GET();
+                }
                 if (jsonString == "News Data unable to be retrieved")
+                {
                     Thread.sleep(5000);
+                }
             }
+        }
+
+        if (jsonString == "Currently Rate Limited by NewsAPI")
+        {
+            String[][] error = new String[1][1];
+            error[0][0] = "Currently Rate Limited by NewsAPI";
+            return error;
         }
 
 
@@ -97,52 +113,69 @@ public class NewsFetch
 //        StrictMode.setThreadPolicy(policy);
 
         HttpURLConnection connection = null;
-//        InputStream inputStream = null;
+        InputStream is = null;
+
+
 
         try
         {
+
             String urlString = NEWS_API_STARTER + NEWS_API_POPULAR_US + NEWS_API_API_KEY;
             URL url = new URL(urlString);
+
 
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoInput(true);
             connection.setDoOutput(true);
 
+            connection.setRequestProperty("User-Agent", "Mozilla/5.0 ( compatible ) ");
+            connection.setRequestProperty("Accept", "*/*");
+
             //This is where the try will fail if it does fail.
             connection.connect();
 
+            if (connection.getResponseCode() != HttpURLConnection.HTTP_OK)
+                is = connection.getErrorStream();
+            else
+                is = connection.getInputStream();
+
 //            StringBuffer buffer = new StringBuffer();
-            InputStream is = connection.getInputStream();
+//            is = connection.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             String line = br.readLine();
 
             is.close();
             connection.disconnect();
+
+            if (line.contains("rateLimited"))
+            {
+                return "Currently Rate Limited by NewsAPI";
+            }
+
             return line;
 
         }
         catch (Throwable t)
         {
             t.printStackTrace();
+        } finally
+        {
+            try
+            {
+                is.close();
+            }
+            catch (Throwable t)
+            {
+            }
+            try
+            {
+                connection.disconnect();
+            }
+            catch (Throwable t)
+            {
+            }
         }
-//        finally
-//        {
-//            try
-//            {
-//                is.close();
-//            }
-//            catch (Throwable t)
-//            {
-//            }
-//            try
-//            {
-//                connection.disconnect();
-//            }
-//            catch (Throwable t)
-//            {
-//            }
-//        }
 
         return "News Data unable to be retrieved";
     }
@@ -153,7 +186,7 @@ public class NewsFetch
 //        StrictMode.setThreadPolicy(policy);
 
         HttpURLConnection connection = null;
-//        InputStream inputStream = null;
+        InputStream is = null;
 
         try
         {
@@ -169,36 +202,47 @@ public class NewsFetch
             connection.connect();
 
 //            StringBuffer buffer = new StringBuffer();
-            InputStream is = connection.getInputStream();
+
+            if (connection.getResponseCode() != HttpURLConnection.HTTP_OK)
+                is = connection.getErrorStream();
+            else
+                is = connection.getInputStream();
+
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             String line = br.readLine();
 
             is.close();
             connection.disconnect();
+
+            if (line.contains("rateLimited"))
+            {
+                return "Currently Rate Limited by NewsAPI";
+            }
+
+
             return line;
 
         }
         catch (Throwable t)
         {
             t.printStackTrace();
+        } finally
+        {
+            try
+            {
+                is.close();
+            }
+            catch (Throwable t)
+            {
+            }
+            try
+            {
+                connection.disconnect();
+            }
+            catch (Throwable t)
+            {
+            }
         }
-//        finally
-//        {
-//            try
-//            {
-//                is.close();
-//            }
-//            catch (Throwable t)
-//            {
-//            }
-//            try
-//            {
-//                connection.disconnect();
-//            }
-//            catch (Throwable t)
-//            {
-//            }
-//        }
 
         return "News Data unable to be retrieved";
     }
@@ -238,6 +282,9 @@ public class NewsFetch
         }
         return headlineLinksArray;
     }
+
+
+
 
 
 }
