@@ -1,12 +1,19 @@
 package com.android.candz.smartmirrorcapstone;
 
-import android.app.ActionBar;
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,6 +39,12 @@ public class Vertical1Activity extends AppCompatActivity
     private Button[] headlineButtons;
     private LinearLayout linearLayout;
     private JsonObject jsonWeatherData;
+
+    private double latitude;
+    private double longitude;
+
+
+    protected LocationListener locationListener;
 
 
     private int iterator;
@@ -80,7 +93,18 @@ public class Vertical1Activity extends AppCompatActivity
 
         }
 
+        getGpsCoordinates();
+
+
+
+
     }
+
+
+
+
+
+
 
     public void handleViews()
     {
@@ -135,16 +159,12 @@ public class Vertical1Activity extends AppCompatActivity
                                 Calendar c = Calendar.getInstance();
 
                                 int sec = c.get(Calendar.SECOND);
-                                if (sec < 10)
-                                    secondString = leadingZero + String.valueOf(sec);
-                                else
-                                    secondString = String.valueOf(sec);
+                                if (sec < 10) secondString = leadingZero + String.valueOf(sec);
+                                else secondString = String.valueOf(sec);
 
                                 int min = c.get(Calendar.MINUTE);
-                                if (min < 10)
-                                    minuteString = leadingZero + String.valueOf(min);
-                                else
-                                    minuteString = String.valueOf(min);
+                                if (min < 10) minuteString = leadingZero + String.valueOf(min);
+                                else minuteString = String.valueOf(min);
 
                                 int hour = c.get(Calendar.HOUR);
 
@@ -428,6 +448,52 @@ public class Vertical1Activity extends AppCompatActivity
                 }
             });
         }
+
+    }
+
+
+    @SuppressLint("MissingPermission")
+    public void getGpsCoordinates()
+    {
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+
+
+        LocationManager mLocationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+        locationListener = new LocationListener()
+        {
+            @Override
+            public void onLocationChanged(Location location)
+            {
+//        txtLat.setText("Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude());
+                longitude = location.getLongitude();
+                latitude = location.getLatitude();
+                System.out.println("TEST:" + longitude + " " + latitude);
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+                Log.d("Latitude","disable");
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+                Log.d("Latitude","enable");
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+                Log.d("Latitude","status");
+            }
+        };
+        try
+        {
+            mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+        }
+        catch (Throwable t)
+        {
+            t.printStackTrace();
+        }
+        locationListener.onLocationChanged(mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
 
     }
 
