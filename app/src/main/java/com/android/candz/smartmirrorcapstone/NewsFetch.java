@@ -66,8 +66,8 @@ public class NewsFetch
     public static String[][] getNewsHeadlines() throws InterruptedException
     {
 
-        String jsonString = openConnectionToNewsAPI_POST();
-//        String jsonTest = openConnectionToNewsAPI_GET();
+        String jsonString = openConnectionToNewsAPI_GET();
+//        String jsonTest = openConnectionToNewsAPI_POST();
         if (jsonString == "News Data unable to be retrieved")
         {
             jsonString = openConnectionToNewsAPI_GET();
@@ -128,7 +128,7 @@ public class NewsFetch
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoInput(true);
-            connection.setDoOutput(true);
+//            connection.setDoOutput(true);
 
             connection.setRequestProperty("User-Agent", "Mozilla/5.0 ( compatible ) ");
             connection.setRequestProperty("Accept", "*/*");
@@ -199,7 +199,7 @@ public class NewsFetch
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setDoInput(true);
-            connection.setDoOutput(true);
+//            connection.setDoOutput(true);
 
             //This is where the try will fail if it does fail.
             connection.connect();

@@ -57,59 +57,54 @@
 
     <LinearLayout
         android:id="@+id/headlineContainer"
-        android:layout_width="225dp"
-        android:layout_height="275dp"
+        android:layout_width="118dp"
+        android:layout_height="534dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="104dp"
         android:orientation="vertical"
-        app:layout_constraintStart_toEndOf="@+id/weatherIcon1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/headline1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="106dp"
             android:autoLink="web"
+            android:background="@null"
             android:text="TextView"
             android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/headline2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="106dp"
+            android:background="@null"
             android:text="TextView"
             android:textColor="#A9A9A9" />
 
         <Button
             android:id="@+id/headline3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="106dp"
+            android:background="@null"
             android:text="TextView"
             android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/headline4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="106dp"
+            android:background="@null"
             android:text="TextView"
             android:textColor="#A9A9A9" />
 
         <Button
             android:id="@+id/headline5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="106dp"
+            android:background="@null"
             android:text="TextView"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeTextV1" />
 </android.support.constraint.ConstraintLayout>

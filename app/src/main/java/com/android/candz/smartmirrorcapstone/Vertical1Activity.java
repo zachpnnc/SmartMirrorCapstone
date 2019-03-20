@@ -1,5 +1,6 @@
 package com.android.candz.smartmirrorcapstone;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -46,6 +47,7 @@ public class Vertical1Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vertical1);
 
+
         //Handles instantiating all of the .XML items.
         handleViews();
 
@@ -82,6 +84,7 @@ public class Vertical1Activity extends AppCompatActivity
 
     public void handleViews()
     {
+
         dateText = findViewById(R.id.dateTextV1);
         timeText = findViewById(R.id.timeTextV1);
 
@@ -123,16 +126,33 @@ public class Vertical1Activity extends AppCompatActivity
                             @Override
                             public void run()
                             {
+
+                                String leadingZero = "0";
+                                String secondString;
+                                String minuteString;
                                 String BLANK = "\u0020";
                                 iterator++;
                                 Calendar c = Calendar.getInstance();
-                                int sec = c.get(Calendar.SECOND);
-                                int min = c.get(Calendar.MINUTE);
-                                int hour = c.get(Calendar.HOUR);
-                                timeText.setText(BLANK);
 
-//                                timeText.getText().clear();
-                                timeText.setText(String.valueOf(hour) + ":" + String.valueOf(min) + ":" + String.valueOf(sec));
+                                int sec = c.get(Calendar.SECOND);
+                                if (sec < 10)
+                                    secondString = leadingZero + String.valueOf(sec);
+                                else
+                                    secondString = String.valueOf(sec);
+
+                                int min = c.get(Calendar.MINUTE);
+                                if (min < 10)
+                                    minuteString = leadingZero + String.valueOf(min);
+                                else
+                                    minuteString = String.valueOf(min);
+
+                                int hour = c.get(Calendar.HOUR);
+
+                                timeText.setText(BLANK);
+                                timeText.getText().clear();
+
+
+                                timeText.setText(String.valueOf(hour) + ":" + minuteString + ":" + secondString);
 
 
                                 if (iterator % 1000 == 0)
