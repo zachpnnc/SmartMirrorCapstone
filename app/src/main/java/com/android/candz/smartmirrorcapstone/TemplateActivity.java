@@ -36,12 +36,9 @@ public class TemplateActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-
-
-                Toast.makeText(TemplateActivity.this, "Moving to Template 1", Toast.LENGTH_SHORT).show(); // for testing
+                Toast.makeText(getApplicationContext(), "Moving to Template 1", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TemplateActivity.this, Vertical1Activity.class);
                 startActivity(intent);
-                // TODO: Fragment layout instead of activity. I'm researching this.
             }
         });
 

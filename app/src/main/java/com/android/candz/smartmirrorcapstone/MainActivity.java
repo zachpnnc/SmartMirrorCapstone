@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity
     private EditText usernameText;
     private EditText passwordText;
     private Button submitButton;
+    private Button registerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity
         submitButton = findViewById(R.id.button1);
         usernameText = findViewById(R.id.editText1);
         passwordText = findViewById(R.id.editText2);
+        registerButton = findViewById(R.id.register);
 
         submitButton.setOnClickListener(new View.OnClickListener()
         {
@@ -33,6 +35,17 @@ public class MainActivity extends AppCompatActivity
                     Intent intent = new Intent(getApplicationContext(), TemplateActivity.class);
                     startActivity(intent);
                 }
+            }
+        });
+
+        registerButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                // TODO: create RegisterActivity.class
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }

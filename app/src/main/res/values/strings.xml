@@ -4,6 +4,7 @@
     <string name="mirror">Smart Mirror</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="Register">Register</string>
     <string name="mirrorViewSelect">Select a Mirror View</string>
     <string name="weather_icon">Weather Icon</string>
     <string name="WhiteColor">#FFFFFF</string>
@@ -14,4 +15,5 @@
     <string name="template4">Template4</string>
     <string name="template5">template5</string>
     <string name="template6">template6</string>
+    <string name="open_weather_maps_app_id">28b3d92963fef3ce6717737997d698b8</string>
 </resources>

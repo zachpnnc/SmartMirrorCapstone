@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/AppTheme">
+    android:theme="@style/AppTheme.NoActionBar">
 
     <ImageView
         android:id="@+id/weatherIcon1"
         android:layout_width="76dp"
         android:layout_height="74dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="560dp"
         android:contentDescription="@string/weather_icon"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/weatherText1"
         app:layout_constraintTop_toBottomOf="@+id/timeTextV1"
         app:srcCompat="@drawable/weather_cloud" />
 
-    <TextView
+    <EditText
         android:id="@+id/dateTextV1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,12 +24,13 @@
         android:layout_marginTop="32dp"
         android:background="@null"
         android:ems="10"
-        android:text="@string/WhiteColor"
+        android:textColor="#FFFFFF"
+        android:focusable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Date" />
 
-    <TextView
+    <EditText
         android:id="@+id/timeTextV1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,73 @@
         android:layout_marginTop="16dp"
         android:background="@null"
         android:ems="10"
+        android:focusable="false"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateTextV1" />
+
+    <TextView
+        android:id="@+id/weatherText1"
+        android:layout_width="86dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="560dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="64sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeTextV1" />
+
+    <LinearLayout
+        android:id="@+id/headlineContainer"
+        android:layout_width="118dp"
+        android:layout_height="534dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="104dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/headline1"
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:autoLink="web"
+            android:background="@null"
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/headline2"
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:background="@null"
+            android:text="TextView"
+            android:textColor="#A9A9A9" />
+
+        <Button
+            android:id="@+id/headline3"
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:background="@null"
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/headline4"
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:background="@null"
+            android:text="TextView"
+            android:textColor="#A9A9A9" />
+
+        <Button
+            android:id="@+id/headline5"
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:background="@null"
+            android:text="TextView"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
