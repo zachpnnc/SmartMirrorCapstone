@@ -70,7 +70,9 @@ public class Vertical1Activity extends AppCompatActivity
         zipCode = "27616";
         //Prompt user to enter a ZipCode to pull weather information from.
 
-        weatherText.setText(getCurrentWeather(zipCode));
+        getGpsCoordinates();
+
+        weatherText.setText(getCurrentWeather());
         weatherText.setTextColor(Color.WHITE);
 
         //Change the Image that WeatherIcon displays based on the type of weather that is currently
@@ -93,7 +95,6 @@ public class Vertical1Activity extends AppCompatActivity
 
         }
 
-        getGpsCoordinates();
 
 
 
@@ -213,7 +214,7 @@ public class Vertical1Activity extends AppCompatActivity
         return dateFormat.format(date);
     }
 
-    public String getCurrentWeather(String zipCode)
+    public String getCurrentWeather()
     {
         //Currently only grabs temperature from Raleigh (RDU).
         //https://w1.weather.gov/xml/current_obs/display.php?stid=KRDU
@@ -247,8 +248,8 @@ public class Vertical1Activity extends AppCompatActivity
 //            t.printStackTrace();
 //        } WeatherClient.ClientBuilder builder = new WeatherClient.ClientBuilder();
 
-        String jsonString = WeatherFetch.getWeatherJsonZip("27616");
-
+//        String jsonString = WeatherFetch.getWeatherJsonZip("27616");
+        String jsonString = WeatherFetch.getWeatherJsonCoor(longitude, latitude);
         jsonWeatherData = WeatherFetch.convertJsonStringtoJsonObject(jsonString);
 
 
@@ -368,7 +369,7 @@ public class Vertical1Activity extends AppCompatActivity
     public void updateWeatherData()
     {
 
-        weatherText.setText(getCurrentWeather(zipCode));
+        weatherText.setText(getCurrentWeather());
         setWeatherTypeIcon(getCurrentWeatherType());
     }
 

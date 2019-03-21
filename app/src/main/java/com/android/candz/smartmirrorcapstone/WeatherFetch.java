@@ -17,11 +17,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.text.DecimalFormat;
 
 public class WeatherFetch extends Activity
 {
 
-    private static final String OPEN_WEATHER_MAP_API = "http://api.openweathermap.org/data/2.5/weather?zip=";
+    private static final String OPEN_WEATHER_MAP_API_ZIP = "http://api.openweathermap.org/data/2.5/weather?zip=";
+    private static final String OPEN_WEATHER_MAP_API_LO_LAT = "http://api.openweathermap.org/data/2.5/weather?";
     private static final String OPEN_WEATHER_MAP_API_KEY = "28b3d92963fef3ce6717737997d698b8";
     private static final String OPEN_WEATHER_MAP_API_METRIC = "&units=imperial&APPID=";
 
@@ -30,7 +32,7 @@ public class WeatherFetch extends Activity
 
         try
         {
-            String stringURL = OPEN_WEATHER_MAP_API + zipCode + "&APPID=" + OPEN_WEATHER_MAP_API_KEY;
+            String stringURL = OPEN_WEATHER_MAP_API_ZIP + zipCode + "&APPID=" + OPEN_WEATHER_MAP_API_KEY;
             URL url = new URL(stringURL);
 
             //EVERYTHING BELOW IS EXPERIMENTAL
@@ -100,7 +102,7 @@ public class WeatherFetch extends Activity
 
         try
         {
-            URL url = new URL(OPEN_WEATHER_MAP_API + zipCode + OPEN_WEATHER_MAP_API_METRIC + OPEN_WEATHER_MAP_API_KEY);
+            URL url = new URL(OPEN_WEATHER_MAP_API_ZIP + zipCode + OPEN_WEATHER_MAP_API_METRIC + OPEN_WEATHER_MAP_API_KEY);
 
             con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
@@ -125,8 +127,7 @@ public class WeatherFetch extends Activity
         catch (Throwable t)
         {
             t.printStackTrace();
-        }
-        finally
+        } finally
         {
             try
             {
@@ -145,6 +146,74 @@ public class WeatherFetch extends Activity
         }
 
         return "Weather Data unable to be retrieved";
+    }
+
+    public static String getWeatherJsonCoor(double lo, double la)
+    {
+        /**THIS CODE IS VERY DANGEROUS.  POOR INTERNET WILL CAUSE THE APP TO CRASH **/
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        /**THIS CODE IS VERY DANGEROUS.  POOR INTERNET WILL CAUSE THE APP TO CRASH **/
+
+        DecimalFormat df = new DecimalFormat("###.#####");
+        lo = Double.valueOf(df.format(lo));
+        la = Double.valueOf(df.format(la));
+
+
+        HttpURLConnection con = null;
+        InputStream is = null;
+        String openWeatherMapLongLat;
+        openWeatherMapLongLat = "lat=" + la + "&lon=" + lo;
+
+        try
+        {
+            String urlString = OPEN_WEATHER_MAP_API_LO_LAT + openWeatherMapLongLat + OPEN_WEATHER_MAP_API_METRIC + OPEN_WEATHER_MAP_API_KEY;
+            URL url = new URL(urlString);
+
+            con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setDoInput(true);
+            con.setDoOutput(true);
+
+            //This is where the try will fail if it does fail.
+            con.connect();
+
+//            StringBuffer buffer = new StringBuffer();
+            is = con.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            String line = br.readLine();
+//            while ((line = br.readLine()) != null)
+//                buffer.append(line + "");
+            is.close();
+
+            con.disconnect();
+//            return buffer.toString();
+            return line;
+        }
+        catch (Throwable t)
+        {
+            t.printStackTrace();
+        } finally
+        {
+            try
+            {
+                is.close();
+            }
+            catch (Throwable t)
+            {
+            }
+            try
+            {
+                con.disconnect();
+            }
+            catch (Throwable t)
+            {
+            }
+        }
+
+        return "Weather Data unable to be retrieved";
+
+
     }
 
     public static JsonObject convertJsonStringtoJsonObject(String jsonString)
