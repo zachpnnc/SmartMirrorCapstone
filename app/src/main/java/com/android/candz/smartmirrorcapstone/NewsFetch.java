@@ -63,7 +63,7 @@ public class NewsFetch
     }
 
 
-    public static String[][] getNewsHeadlines() throws InterruptedException
+    public static String[][] getNewsHeadlines()
     {
 
         String jsonString = openConnectionToNewsAPI_GET();
@@ -72,21 +72,21 @@ public class NewsFetch
         {
             jsonString = openConnectionToNewsAPI_GET();
 
-            while (jsonString == "News Data unable to be retrieved")
-            {
-                if (jsonString == "News Data unable to be retrieved")
-                {
-                    jsonString = openConnectionToNewsAPI_POST();
-                }
-                if (jsonString == "News Data unable to be retrieved")
-                {
-                    jsonString = openConnectionToNewsAPI_GET();
-                }
-                if (jsonString == "News Data unable to be retrieved")
-                {
-                    Thread.sleep(5000);
-                }
-            }
+//            while (jsonString == "News Data unable to be retrieved")
+//            {
+//                if (jsonString == "News Data unable to be retrieved")
+//                {
+//                    jsonString = openConnectionToNewsAPI_POST();
+//                }
+//                if (jsonString == "News Data unable to be retrieved")
+//                {
+//                    jsonString = openConnectionToNewsAPI_GET();
+//                }
+//                if (jsonString == "News Data unable to be retrieved")
+//                {
+//                    Thread.sleep(5000);
+//                }
+//            }
         }
 
         if (jsonString == "Currently Rate Limited by NewsAPI")

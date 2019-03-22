@@ -48,7 +48,6 @@ public class Vertical1Activity extends AppCompatActivity
 
 
     private int iterator;
-    private String zipCode;
     boolean run = true; //set it to false if you want to stop the timer
     Handler mHandler = new Handler();
 
@@ -56,10 +55,8 @@ public class Vertical1Activity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vertical1);
-
 
         //Handles instantiating all of the .XML items.
         handleViews();
@@ -67,7 +64,6 @@ public class Vertical1Activity extends AppCompatActivity
         dateText.setText(currentDate());
         setBackgroundColor();
         timer();
-        zipCode = "27616";
         //Prompt user to enter a ZipCode to pull weather information from.
 
         getGpsCoordinates();
@@ -80,42 +76,23 @@ public class Vertical1Activity extends AppCompatActivity
         //Possible values are Clear sky, few clouds, scattered clouds, broken clouds,
         //shower rain, rain, thunderstorm, snow, mist
 
-
         if (confirmWeatherData())
         {
             setWeatherTypeIcon(getCurrentWeatherType());
         }
-
-        try
-        {
-            handleNewsInformation();
-        }
-        catch (Exception e)
-        {
-
-        }
-
-
-
-
+        handleNewsInformation();
 
     }
 
 
-
-
-
-
-
     public void handleViews()
     {
-
         dateText = findViewById(R.id.dateTextV1);
         timeText = findViewById(R.id.timeTextV1);
 
-
         weatherText = findViewById(R.id.weatherText1);
         weatherIcon = findViewById(R.id.weatherIcon1);
+
         linearLayout = findViewById(R.id.headlineContainer);
         //Handles instantiating Headlines and adds them to an array.
         headlineButtons = new Button[5];
@@ -194,21 +171,18 @@ public class Vertical1Activity extends AppCompatActivity
 
     private void setBackgroundColor()
     {
-
         View view = this.getWindow().getDecorView();
         view.setBackgroundColor(0x000000);
     }
 
     private void setTextColor(TextView dateText, TextView timeText)
     {
-
         dateText.setTextColor(Color.WHITE);
         timeText.setTextColor(Color.WHITE);
     }
 
     private String currentDate()
     {
-
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
         return dateFormat.format(date);
@@ -250,7 +224,7 @@ public class Vertical1Activity extends AppCompatActivity
 
 //        String jsonString = WeatherFetch.getWeatherJsonZip("27616");
         String jsonString = WeatherFetch.getWeatherJsonCoor(longitude, latitude);
-        jsonWeatherData = WeatherFetch.convertJsonStringtoJsonObject(jsonString);
+        jsonWeatherData = WeatherFetch.convertJsonStringToJsonObject(jsonString);
 
 
         //Crashes here
@@ -263,14 +237,12 @@ public class Vertical1Activity extends AppCompatActivity
 
     public String getCurrentWeatherType()
     {
-
         return WeatherFetch.fetchCurrentWeatherType(jsonWeatherData);
     }
 
 
     private void setWeatherTypeIcon(String weatherTypeIconId)
     {
-
         /**
          * previous filename = New filename.
          * R.drawable.fileName won't recognize fileName if filename contains a number.  That is the
@@ -356,24 +328,21 @@ public class Vertical1Activity extends AppCompatActivity
                 break;
             default:
                 weatherIcon.setImageResource(R.drawable.weather_cloud);
-
         }
     }
 
     public boolean confirmWeatherData()
     {
-
         return WeatherFetch.confirmWeatherData(jsonWeatherData);
     }
 
     public void updateWeatherData()
     {
-
         weatherText.setText(getCurrentWeather());
         setWeatherTypeIcon(getCurrentWeatherType());
     }
 
-    public void handleNewsInformation() throws InterruptedException
+    public void handleNewsInformation()
     {
 //        NewsFetch fetchNews = new NewsFetch();
         final String[][] headlineArray = NewsFetch.getNewsHeadlines();
@@ -387,7 +356,6 @@ public class Vertical1Activity extends AppCompatActivity
         }
         else
         {
-
             //Add news headlines to a TextView.
             for (int i = 0; i < 5; i++)
             {
@@ -399,7 +367,6 @@ public class Vertical1Activity extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
-
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][0]));
                     startActivity(browserIntent);
                 }
@@ -410,7 +377,6 @@ public class Vertical1Activity extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
-
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][1]));
                     startActivity(browserIntent);
                 }
@@ -421,7 +387,6 @@ public class Vertical1Activity extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
-
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][2]));
                     startActivity(browserIntent);
                 }
@@ -432,7 +397,6 @@ public class Vertical1Activity extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
-
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][3]));
                     startActivity(browserIntent);
                 }
@@ -456,7 +420,8 @@ public class Vertical1Activity extends AppCompatActivity
     @SuppressLint("MissingPermission")
     public void getGpsCoordinates()
     {
-        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
 
 
         LocationManager mLocationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
@@ -472,18 +437,21 @@ public class Vertical1Activity extends AppCompatActivity
             }
 
             @Override
-            public void onProviderDisabled(String provider) {
-                Log.d("Latitude","disable");
+            public void onProviderDisabled(String provider)
+            {
+                Log.d("Latitude", "disable");
             }
 
             @Override
-            public void onProviderEnabled(String provider) {
-                Log.d("Latitude","enable");
+            public void onProviderEnabled(String provider)
+            {
+                Log.d("Latitude", "enable");
             }
 
             @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-                Log.d("Latitude","status");
+            public void onStatusChanged(String provider, int status, Bundle extras)
+            {
+                Log.d("Latitude", "status");
             }
         };
         try

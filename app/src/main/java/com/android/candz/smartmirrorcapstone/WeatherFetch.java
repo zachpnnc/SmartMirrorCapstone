@@ -210,21 +210,16 @@ public class WeatherFetch extends Activity
             {
             }
         }
-
         return "Weather Data unable to be retrieved";
-
-
     }
 
-    public static JsonObject convertJsonStringtoJsonObject(String jsonString)
+    public static JsonObject convertJsonStringToJsonObject(String jsonString)
     {
-
         return new JsonParser().parse(jsonString).getAsJsonObject();
     }
 
     public static String fetchCurrentTemperature(JsonObject weatherJson)
     {
-
         String unformattedTemp = weatherJson.getAsJsonObject("main").get("temp").toString();
         int length = unformattedTemp.length();
         String formattedTemp = unformattedTemp.substring(0, length - 3);
