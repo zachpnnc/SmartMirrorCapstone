@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.android.candz.smartmirrorcapstone"
-        minSdkVersion 26
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -28,7 +28,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation 'com.github.KwabenBerko:News-API-Java:1.0.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
+//    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
 
 
 
