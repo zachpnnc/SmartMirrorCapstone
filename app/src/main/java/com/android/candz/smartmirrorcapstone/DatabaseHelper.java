@@ -13,7 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL1 = "ID";
     private static final String COL2 = "USERNAME";
     private static final String COL3 = "PASSWORD";
-    private static final String COL4 = "EMAIL";
+    private static final String COL4 = "ZIPCODE";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT , " +
-                " USERNAME TEXT, PASSWORD TEXT, EMAIL TEXT)";
+                " USERNAME TEXT, PASSWORD TEXT, ZIPCODE TEXT)";
 
         sqLiteDatabase.execSQL(createTable);
     }
@@ -34,12 +34,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean addData(String username, String password, String email) {
+    public boolean addData(String username, String password, String zipcode) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL2, username);
         contentValues.put(COL3, password);
-        contentValues.put(COL4, email);
+        contentValues.put(COL4, zipcode);
 
         long result = sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
         if (result == -1) {
@@ -53,6 +53,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME;
         return sqLiteDatabase.rawQuery(query, null);
+    }
+
+    public boolean isEmpty() {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        String query = "SELECT " + COL2 + " FROM " + TABLE_NAME;
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+
+        if (cursor.getCount() == 0) {
+            return true;
+        }
+
+        cursor.close();
+
+        return false;
+    }
+
+    public boolean searchName(String name) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        String query = "SELECT " + COL2 + " FROM " + TABLE_NAME +
+                " WHERE " + COL2 + " = " + "'" + name + "'";
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        if (cursor.getCount() <= 0) {
+            return false;
+        }
+        cursor.close();
+        return true;
+    }
+
+    public boolean searchPassword(String password) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        String query = "SELECT " + COL3 + " FROM " + TABLE_NAME +
+                " WHERE " + COL3 + " = " + "'" + password + "'";
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        if (cursor.getCount() <= 0) {
+            return false;
+        }
+        cursor.close();
+        return true;
+    }
+
+    public boolean checkLogin(int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        String query = "SELECT " + COL3 + " FROM " + TABLE_NAME +
+                " WHERE " + COL1 + " = " + "'" + id + "'";
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        if (cursor.getCount() <= 0) {
+            return false;
+        }
+        cursor.close();
+        return true;
     }
 
     public Cursor getItemID(String name) {

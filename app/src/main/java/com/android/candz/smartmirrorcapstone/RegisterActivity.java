@@ -14,8 +14,8 @@ public class RegisterActivity extends AppCompatActivity implements Login {
     private EditText username;
     private EditText password;
     private EditText password_confirm;
-    private EditText email;
-    private Button user_info;
+    private EditText zipcode;
+    private DatabaseHelper databaseHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,17 +27,23 @@ public class RegisterActivity extends AppCompatActivity implements Login {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password1);
         password_confirm = findViewById(R.id.password2);
-        email = findViewById(R.id.email);
-        user_info = findViewById(R.id.user_info);
+        zipcode = findViewById(R.id.zipcode);
+        Button user_info = findViewById(R.id.user_info);
+        databaseHelper = new DatabaseHelper(this);
 
         addData();
 
         user_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: make only clickable if >0 users registers
-                Intent intent = new Intent(RegisterActivity.this, UserInfoActivity.class);
-                startActivity(intent);
+                if (databaseHelper.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "You must register first!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(RegisterActivity.this, UserInfoActivity.class);
+                    startActivity(intent);
+                }
+                //Intent intent = new Intent(RegisterActivity.this, UserInfoActivity.class);
+                //startActivity(intent);
             }
         });
     }
@@ -46,12 +52,12 @@ public class RegisterActivity extends AppCompatActivity implements Login {
         registerConfirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String user = username.getText().toString();
+                String user = username.getText().toString().toLowerCase();
                 String pass = password.getText().toString();
 
                 if (checkLogin(user, pass)) {
                     boolean insertData = userDB.addData(user, pass,
-                            email.getText().toString());
+                            zipcode.getText().toString());
 
                     if (insertData) {
                         Toast.makeText(RegisterActivity.this, "Data saved successful.", Toast.LENGTH_SHORT).show();
@@ -68,6 +74,8 @@ public class RegisterActivity extends AppCompatActivity implements Login {
     // checks to see if the password is valid
     public boolean checkLogin(String username, String password)
     {
+        // TODO: password hashing
+
         if (password.equals(password_confirm.getText().toString())) {
             return true;
         }

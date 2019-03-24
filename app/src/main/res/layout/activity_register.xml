@@ -15,7 +15,7 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Username"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@+id/password1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="Password"
+        android:text=""
         app:layout_constraintBottom_toTopOf="@+id/password2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="Password"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
         app:layout_constraintVertical_bias="0.441" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/zipcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -65,7 +65,7 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="Email"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +81,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="Confirm\nPassword"
-        app:layout_constraintBottom_toTopOf="@+id/email_text"
+        app:layout_constraintBottom_toTopOf="@+id/zipcode_text"
         app:layout_constraintEnd_toStartOf="@+id/password2"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
@@ -120,16 +120,16 @@
         app:layout_constraintVertical_bias="0.862" />
 
     <TextView
-        android:id="@+id/email_text"
+        android:id="@+id/zipcode_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Email"
+        android:text="Zipcode"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/email"
+        app:layout_constraintEnd_toStartOf="@+id/zipcode"
         app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -163,7 +163,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/zipcode_text"
         app:layout_constraintVertical_bias="0.12" />
 
     <Button
