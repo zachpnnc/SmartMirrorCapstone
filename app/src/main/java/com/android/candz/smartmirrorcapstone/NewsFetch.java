@@ -95,8 +95,6 @@ public class NewsFetch
             error[0][0] = "Currently Rate Limited by NewsAPI";
             return error;
         }
-
-
         jsonObject = new JsonParser().parse(jsonString).getAsJsonObject();
         //headlineArray[0][index] = headline itself.
         //headlineArray[1][index] = headline Links.
@@ -124,12 +122,10 @@ public class NewsFetch
             String urlString = NEWS_API_STARTER + NEWS_API_POPULAR_US + NEWS_API_API_KEY;
             URL url = new URL(urlString);
 
-
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoInput(true);
 //            connection.setDoOutput(true);
-
             connection.setRequestProperty("User-Agent", "Mozilla/5.0 ( compatible ) ");
             connection.setRequestProperty("Accept", "*/*");
 
@@ -285,8 +281,6 @@ public class NewsFetch
         }
         return headlineLinksArray;
     }
-
-
 
 
 

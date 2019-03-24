@@ -42,8 +42,6 @@ public class RegisterActivity extends AppCompatActivity implements Login {
                     Intent intent = new Intent(RegisterActivity.this, UserInfoActivity.class);
                     startActivity(intent);
                 }
-                //Intent intent = new Intent(RegisterActivity.this, UserInfoActivity.class);
-                //startActivity(intent);
             }
         });
     }
@@ -74,11 +72,12 @@ public class RegisterActivity extends AppCompatActivity implements Login {
     // checks to see if the password is valid
     public boolean checkLogin(String username, String password)
     {
-        // TODO: password hashing
+        // TODO: password hashing [STRETCH GOAL]
 
         if (password.equals(password_confirm.getText().toString())) {
             return true;
         }
+
         return false;
     }
 }

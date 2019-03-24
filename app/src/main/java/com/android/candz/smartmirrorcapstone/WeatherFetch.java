@@ -21,7 +21,6 @@ import java.text.DecimalFormat;
 
 public class WeatherFetch extends Activity
 {
-
     private static final String OPEN_WEATHER_MAP_API_ZIP = "http://api.openweathermap.org/data/2.5/weather?zip=";
     private static final String OPEN_WEATHER_MAP_API_LO_LAT = "http://api.openweathermap.org/data/2.5/weather?";
     private static final String OPEN_WEATHER_MAP_API_KEY = "28b3d92963fef3ce6717737997d698b8";
@@ -222,7 +221,7 @@ public class WeatherFetch extends Activity
     {
         String unformattedTemp = weatherJson.getAsJsonObject("main").get("temp").toString();
         int length = unformattedTemp.length();
-        String formattedTemp = unformattedTemp.substring(0, length - 3);
+        String formattedTemp = unformattedTemp.substring(0, length - 2); // -3
         return formattedTemp;
     }
 
@@ -253,6 +252,4 @@ public class WeatherFetch extends Activity
         }
         return false;
     }
-
-
 }

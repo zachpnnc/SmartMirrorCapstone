@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 
@@ -269,7 +270,6 @@ public class Vertical1Activity extends AppCompatActivity
          *
          * 50d and 50n may be a problem with the black background.
          */
-
         switch (weatherTypeIconId)
         {
             case "01d":
@@ -462,8 +462,12 @@ public class Vertical1Activity extends AppCompatActivity
         {
             t.printStackTrace();
         }
-        locationListener.onLocationChanged(mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
+        try {
+            locationListener.onLocationChanged(mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
+        } catch(NullPointerException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "ERROR!", Toast.LENGTH_SHORT).show();
+        }
 
     }
-
 }
