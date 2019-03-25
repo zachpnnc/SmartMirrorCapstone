@@ -15,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
@@ -62,13 +63,8 @@ public class Vertical1Activity extends AppCompatActivity
 
         calendar = findViewById(R.id.calendarView);
 
-        calendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO
-                Toast.makeText(Vertical1Activity.this, "CALENDAR", Toast.LENGTH_SHORT).show();
-            }
-        });
+        // handles the calendar
+        handleCalendar();
 
         //Handles instantiating all of the .XML items.
         handleViews();
@@ -94,6 +90,12 @@ public class Vertical1Activity extends AppCompatActivity
         }
         handleNewsInformation();
 
+    }
+
+    public void handleCalendar() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String selectedDate = sdf.format(new Date(calendar.getDate()));
+        Toast.makeText(Vertical1Activity.this, selectedDate, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -477,7 +479,7 @@ public class Vertical1Activity extends AppCompatActivity
             locationListener.onLocationChanged(mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
         } catch(NullPointerException e) {
             e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "ERROR!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Last known location not known!", Toast.LENGTH_SHORT).show();
         }
 
     }
