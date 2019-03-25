@@ -15,11 +15,10 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,14 +36,16 @@ public class Vertical1Activity extends AppCompatActivity
 
     private EditText dateText;
     private EditText timeText;
-    private TextView weatherText;
-    private ImageView weatherIcon;
+    private Button weatherText;
+    private ImageButton weatherIcon;
     private Button[] headlineButtons;
     private LinearLayout linearLayout;
     private JsonObject jsonWeatherData;
 
-    private double latitude;
-    private double longitude;
+
+
+    private static double latitude;
+    private static double longitude;
 
     protected LocationListener locationListener;
 
@@ -78,6 +79,7 @@ public class Vertical1Activity extends AppCompatActivity
 
         weatherText.setText(getCurrentWeather());
         weatherText.setTextColor(Color.WHITE);
+        handleWeatherButtons();
 
         //Change the Image that WeatherIcon displays based on the type of weather that is currently
         //occurring.  Values can be obtained from WeatherFetch.fetchCurrentWeatherType()
@@ -92,7 +94,8 @@ public class Vertical1Activity extends AppCompatActivity
 
     }
 
-    public void handleCalendar() {
+    public void handleCalendar()
+    {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String selectedDate = sdf.format(new Date(calendar.getDate()));
         Toast.makeText(Vertical1Activity.this, selectedDate, Toast.LENGTH_SHORT).show();
@@ -366,8 +369,7 @@ public class Vertical1Activity extends AppCompatActivity
             {
                 headlineButtons[i].setText("Currently Rate Limited by NewsAPI");
             }
-        }
-        else
+        } else
         {
             //Add news headlines to a TextView.
             for (int i = 0; i < 5; i++)
@@ -420,7 +422,6 @@ public class Vertical1Activity extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
-
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][4]));
                     startActivity(browserIntent);
                 }
@@ -475,12 +476,48 @@ public class Vertical1Activity extends AppCompatActivity
         {
             t.printStackTrace();
         }
-        try {
+        try
+        {
             locationListener.onLocationChanged(mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
-        } catch(NullPointerException e) {
+        }
+        catch (NullPointerException e)
+        {
             e.printStackTrace();
             Toast.makeText(getApplicationContext(), "Last known location not known!", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void handleWeatherButtons()
+    {
+        weatherIcon.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(Vertical1Activity.this, WeatherExpanded.class);
+                startActivity(intent);
+            }
+        });
+
+        weatherText.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(Vertical1Activity.this, WeatherExpanded.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public static double getLatitude()
+    {
+        return latitude;
+    }
+
+    public static double getLongitude()
+    {
+        return longitude;
     }
 }

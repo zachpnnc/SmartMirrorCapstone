@@ -31,13 +31,12 @@
         <activity android:name=".Vertical1Activity">
 
         </activity>
-        <activity android:name=".RegisterActivity">
-        </activity>
+        <activity android:name=".RegisterActivity"></activity>
 
-        <activity android:name=".UserInfoActivity">
-        </activity>
+        <activity android:name=".UserInfoActivity"></activity>
 
         <activity android:name=".EditUserInfoActivity" />
+        <activity android:name=".WeatherExpanded"></activity>
     </application>
 
 </manifest>
