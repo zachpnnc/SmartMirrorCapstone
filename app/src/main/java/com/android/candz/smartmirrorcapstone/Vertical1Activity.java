@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -44,7 +45,6 @@ public class Vertical1Activity extends AppCompatActivity
     private double latitude;
     private double longitude;
 
-
     protected LocationListener locationListener;
 
 
@@ -52,12 +52,23 @@ public class Vertical1Activity extends AppCompatActivity
     boolean run = true; //set it to false if you want to stop the timer
     Handler mHandler = new Handler();
 
+    private CalendarView calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vertical1);
+
+        calendar = findViewById(R.id.calendarView);
+
+        calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO
+                Toast.makeText(Vertical1Activity.this, "CALENDAR", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //Handles instantiating all of the .XML items.
         handleViews();
