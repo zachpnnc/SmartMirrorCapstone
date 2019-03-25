@@ -14,7 +14,6 @@ public class RegisterActivity extends AppCompatActivity implements Login {
     private EditText username;
     private EditText password;
     private EditText password_confirm;
-    private EditText zipcode;
     private DatabaseHelper databaseHelper;
 
     @Override
@@ -27,7 +26,6 @@ public class RegisterActivity extends AppCompatActivity implements Login {
         username = findViewById(R.id.username);
         password = findViewById(R.id.password1);
         password_confirm = findViewById(R.id.password2);
-        zipcode = findViewById(R.id.zipcode);
         Button user_info = findViewById(R.id.user_info);
         databaseHelper = new DatabaseHelper(this);
 
@@ -54,8 +52,7 @@ public class RegisterActivity extends AppCompatActivity implements Login {
                 String pass = password.getText().toString();
 
                 if (checkLogin(user, pass)) {
-                    boolean insertData = userDB.addData(user, pass,
-                            zipcode.getText().toString());
+                    boolean insertData = userDB.addData(user, pass);
 
                     if (insertData) {
                         Toast.makeText(RegisterActivity.this, "Data saved successful.", Toast.LENGTH_SHORT).show();
