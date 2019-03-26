@@ -2,6 +2,7 @@ package com.android.candz.smartmirrorcapstone;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -32,7 +33,9 @@ public class WeatherExpanded extends AppCompatActivity
             element = jsonArray.get(i);
             object = (JsonObject) element;
             test = (JsonObject) object.get("main");
-            temperatureList[i] = test.get("temp").toString();
+            String temp = test.get("temp").toString();
+
+            temperatureList[i] = temp.replaceAll("^\"|\"$", "");
         }
         return temperatureList;
     }
