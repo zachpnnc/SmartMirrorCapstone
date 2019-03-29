@@ -25,6 +25,77 @@ public class WeatherFetch extends Activity
     private static final String OPEN_WEATHER_MAP_API_LO_LAT = "http://api.openweathermap.org/data/2.5/weather?";
     private static final String OPEN_WEATHER_MAP_API_KEY = "28b3d92963fef3ce6717737997d698b8";
     private static final String OPEN_WEATHER_MAP_API_METRIC = "&units=imperial&APPID=";
+    private static final String OPEN_WEATHER_MAP_API_3_HOUR = "http://api.openweathermap.org/data/2.5/forecast?";
+
+
+
+
+
+    public static String getAPIData3Hourly()
+    {
+        double lat = Vertical1Activity.getLatitude();
+        double lon = Vertical1Activity.getLongitude();
+
+        DecimalFormat df = new DecimalFormat("###.#####");
+        lon = Double.valueOf(df.format(lon));
+        lat = Double.valueOf(df.format(lat));
+
+
+        HttpURLConnection con = null;
+        InputStream is = null;
+        String openWeatherMapLongLat;
+        openWeatherMapLongLat = "lat=" + lat + "&lon=" + lon;
+
+        try
+        {
+            String urlString = OPEN_WEATHER_MAP_API_3_HOUR + openWeatherMapLongLat + OPEN_WEATHER_MAP_API_METRIC + OPEN_WEATHER_MAP_API_KEY;
+            URL url = new URL(urlString);
+
+            con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setDoInput(true);
+            con.setDoOutput(true);
+
+            //This is where the try will fail if it does fail.
+            con.connect();
+
+//            StringBuffer buffer = new StringBuffer();
+            is = con.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            String line = br.readLine();
+//            while ((line = br.readLine()) != null)
+//                buffer.append(line + "");
+            is.close();
+
+            con.disconnect();
+//            return buffer.toString();
+            return line;
+        }
+        catch (Throwable t)
+        {
+            t.printStackTrace();
+        } finally
+        {
+            try
+            {
+                is.close();
+            }
+            catch (Throwable t)
+            {
+            }
+            try
+            {
+                con.disconnect();
+            }
+            catch (Throwable t)
+            {
+            }
+        }
+        return "Weather Data unable to be retrieved";
+    }
+
+
+
 
     public static JSONObject getJSON(Context context, String zipCode)
     {
