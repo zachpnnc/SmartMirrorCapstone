@@ -16,9 +16,6 @@ public class WeatherExpanded extends AppCompatActivity
     public TextView[] timeArray = new TextView[12];
     public TextView[] weatherArray = new TextView[12];
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -30,8 +27,8 @@ public class WeatherExpanded extends AppCompatActivity
         JsonObject jsonObject = WeatherFetch.convertJsonStringToJsonObject(weatherData);
         String[] jsonTemperatures = parseJsonForTemperatures(jsonObject);
 
-        String[] adjustedTemperatues = fillInGaps(jsonTemperatures);
-        loadXMLinformation(adjustedTemperatues);
+        String[] adjustedTemperatures = fillInGaps(jsonTemperatures);
+        loadXMLinformation(adjustedTemperatures);
     }
 
     public void instantiateXML()
@@ -123,6 +120,8 @@ public class WeatherExpanded extends AppCompatActivity
     {
         for (int i = 0; i < 12; i++)
         {
+            //Instead of "hours from now" can be changed to actual time.
+            //can be difficult to implement.
             timeArray[i].setText(i + " hours from now");
             weatherArray[i].setText(temperatures[i]);
         }
