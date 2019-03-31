@@ -13,6 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="324dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,6 +24,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="300dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,6 +35,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="272dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,6 +46,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="244dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,6 +57,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="216dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,6 +68,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="184dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,6 +79,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="324dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,6 +90,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="300dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -93,6 +101,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="272dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -103,6 +112,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="244dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -113,6 +123,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="216dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -123,6 +134,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="184dp"
         android:text="TextView"
+        android:textColor="#A9A9A9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -141,6 +153,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="152dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -151,6 +164,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="152dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -161,6 +175,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="124dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -171,6 +186,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="124dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -181,6 +197,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="96dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -191,6 +208,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="96dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -201,6 +219,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="60dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toEndOf="@+id/textView3"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -211,6 +230,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -221,6 +241,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="36dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toEndOf="@+id/textView2"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -231,6 +252,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -241,6 +263,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toEndOf="@+id/textView1"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -251,6 +274,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="TextView"
+            android:textColor="#A9A9A9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView1" />
     </android.support.constraint.ConstraintLayout>
