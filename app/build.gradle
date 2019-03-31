@@ -16,6 +16,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // added to prevent redundant dependencies
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+}
+
+repositories {
+    mavenCentral()
 }
 
 dependencies {
@@ -26,16 +42,28 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
     implementation 'com.github.KwabenBerko:News-API-Java:1.0.0'
-//    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
-
-
-
+    //    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
     implementation 'net.aksingh:owm-japis:2.5.2.3'
-
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'android.arch.navigation:navigation-fragment:1.0.0-rc02'
+    implementation 'com.google.api-client:google-api-client:1.25.0'
 
+    /*
+     * **********For calendar**********
+     */
+
+    //implementation 'com.google.apis:google-api-services-calendar:v3-rev373-1.25.0'
+    implementation 'com.google.api-client:google-api-client:1.24.1'
+    //implementation 'com.google.api-client:google-api-client-android:1.20.0'
+    implementation 'com.google.api-client:google-api-client-android:1.24.1'
+
+    implementation 'com.google.http-client:google-http-client:1.24.1'
+    implementation 'com.google.http-client:google-http-client-android:1.24.1'
+
+    implementation 'com.google.oauth-client:google-oauth-client:1.24.1'
+
+    implementation 'com.google.http-client:google-http-client-gson:1.19.0'
+    //implementation 'com.google.android.gms:play-services-base:10.2.0'
 
 }

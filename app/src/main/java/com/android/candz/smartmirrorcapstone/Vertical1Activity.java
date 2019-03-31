@@ -39,7 +39,6 @@ public class Vertical1Activity extends AppCompatActivity
     private Button weatherText;
     private ImageButton weatherIcon;
     private Button[] headlineButtons;
-    private LinearLayout linearLayout;
     private JsonObject jsonWeatherData;
 
 
@@ -54,15 +53,11 @@ public class Vertical1Activity extends AppCompatActivity
     boolean run = true; //set it to false if you want to stop the timer
     Handler mHandler = new Handler();
 
-    private CalendarView calendar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vertical1);
-
-        calendar = findViewById(R.id.calendarView);
 
         // handles the calendar
         handleCalendar();
@@ -96,9 +91,7 @@ public class Vertical1Activity extends AppCompatActivity
 
     public void handleCalendar()
     {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String selectedDate = sdf.format(new Date(calendar.getDate()));
-        Toast.makeText(Vertical1Activity.this, selectedDate, Toast.LENGTH_SHORT).show();
+        // TODO
     }
 
 
@@ -110,7 +103,6 @@ public class Vertical1Activity extends AppCompatActivity
         weatherText = findViewById(R.id.weatherText1);
         weatherIcon = findViewById(R.id.weatherIcon1);
 
-        linearLayout = findViewById(R.id.headlineContainer);
         //Handles instantiating Headlines and adds them to an array.
         headlineButtons = new Button[5];
         headlineButtons[0] = findViewById(R.id.headline1);
