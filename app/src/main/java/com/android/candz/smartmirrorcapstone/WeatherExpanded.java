@@ -88,23 +88,23 @@ public class WeatherExpanded extends AppCompatActivity
     public String[] parseJsonForIcons(JsonObject jsonObject)
     {
         JsonArray jsonArray = jsonObject.getAsJsonArray("list");
-        JsonElement element;
-        JsonObject object;
-        JsonObject test;
-        String[] temperatureList = new String[39];
+//        JsonElement element;
+//        JsonObject object;
+//        JsonObject test;
+        String[] iconList = new String[39];
 
         //This definitely needs to be tested, don't think it works correctly now.
         for (int i = 0; i < 38; i++)
         {
-            JsonArray jsonArrayIcon = (JsonArray) jsonArray.get(0);
-            element = jsonArray.get(i);
-            object = (JsonObject) element;
-            test = (JsonObject) object.get("weather");
-            String temp = test.get("temp").toString();
+            JsonElement element = (JsonObject) jsonArray.get(i);
+            JsonObject object = (JsonObject) element;
+            JsonArray test = (JsonArray) object.getAsJsonArray("weather");
+            JsonObject iconObject = (JsonObject) test.get(0);
+            JsonElement iconId = iconObject.get("icon");
 
-            temperatureList[i] = temp.replaceAll("^\"|\"$", "");
+            iconList[i] = iconId.toString();
         }
-        return temperatureList;
+        return iconList;
     }
 
     public String[] fillInGaps(String[] jsonTemperatures)
@@ -137,7 +137,6 @@ public class WeatherExpanded extends AppCompatActivity
             {
                 adjustedTemperaturesString[i] = adjustedTemperaturesString[i].substring(0,1);
             }
-
         }
 
         return adjustedTemperaturesString;
