@@ -26,9 +26,14 @@ public class WeatherExpanded extends AppCompatActivity
         String weatherData = WeatherFetch.getAPIData3Hourly();
         JsonObject jsonObject = WeatherFetch.convertJsonStringToJsonObject(weatherData);
         String[] jsonTemperatures = parseJsonForTemperatures(jsonObject);
+        String[] temperatureIcons = parseJsonForIcons(jsonObject);
+
 
         String[] adjustedTemperatures = fillInGaps(jsonTemperatures);
+        //Can add in code to load in weather icon, and wind speeds / direction.
         loadXMLinformation(adjustedTemperatures);
+
+
     }
 
     public void instantiateXML()
@@ -73,6 +78,28 @@ public class WeatherExpanded extends AppCompatActivity
             element = jsonArray.get(i);
             object = (JsonObject) element;
             test = (JsonObject) object.get("main");
+            String temp = test.get("temp").toString();
+
+            temperatureList[i] = temp.replaceAll("^\"|\"$", "");
+        }
+        return temperatureList;
+    }
+
+    public String[] parseJsonForIcons(JsonObject jsonObject)
+    {
+        JsonArray jsonArray = jsonObject.getAsJsonArray("list");
+        JsonElement element;
+        JsonObject object;
+        JsonObject test;
+        String[] temperatureList = new String[39];
+
+        //This definitely needs to be tested, don't think it works correctly now.
+        for (int i = 0; i < 38; i++)
+        {
+            JsonArray jsonArrayIcon = (JsonArray) jsonArray.get(0);
+            element = jsonArray.get(i);
+            object = (JsonObject) element;
+            test = (JsonObject) object.get("weather");
             String temp = test.get("temp").toString();
 
             temperatureList[i] = temp.replaceAll("^\"|\"$", "");

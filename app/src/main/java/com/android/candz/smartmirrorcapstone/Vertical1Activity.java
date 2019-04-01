@@ -9,6 +9,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
@@ -34,6 +35,7 @@ import java.util.Date;
 public class Vertical1Activity extends AppCompatActivity
 {
 
+    private static final String TAG = "VerticalActivity1";
     private EditText dateText;
     private EditText timeText;
     private Button weatherText;
@@ -439,7 +441,7 @@ public class Vertical1Activity extends AppCompatActivity
 //        txtLat.setText("Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude());
                 longitude = location.getLongitude();
                 latitude = location.getLatitude();
-                System.out.println("TEST:" + longitude + " " + latitude);
+                Log.d(TAG,"TEST:" + longitude + " " + latitude);
             }
 
             @Override
