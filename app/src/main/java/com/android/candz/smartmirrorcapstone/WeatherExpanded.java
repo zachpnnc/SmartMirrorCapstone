@@ -187,66 +187,121 @@ public class WeatherExpanded extends AppCompatActivity
 
     public void loadXMLIcons(String[] icons)
     {
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < 4; i++)
         {
             switch (icons[i])
             {
                 case "01d":
-                    iconArray[i].setImageResource(R.drawable.a);
+                    iconArray[(i*3)].setImageResource(R.drawable.a);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.a);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.a);
                     break;
                 case "01n":
-                    iconArray[i].setImageResource(R.drawable.aa);
+                    iconArray[(i*3)].setImageResource(R.drawable.aa);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.aa);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.aa);
+
                     break;
                 case "02d":
-                    iconArray[i].setImageResource(R.drawable.aaa);
+                    iconArray[(i*3)].setImageResource(R.drawable.aaa);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.aaa);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.aaa);
+
                     break;
                 case "02n":
-                    iconArray[i].setImageResource(R.drawable.aaaa);
+                    iconArray[(i*3)].setImageResource(R.drawable.aaaa);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.aaaa);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.aaaa);
+
                     break;
                 case "03d":
-                    iconArray[i].setImageResource(R.drawable.b);
+                    iconArray[(i*3)].setImageResource(R.drawable.b);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.b);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.b);
+
                     break;
                 case "03n":
-                    iconArray[i].setImageResource(R.drawable.bb);
+                    iconArray[(i*3)].setImageResource(R.drawable.bb);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.bb);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.bb);
+
                     break;
                 case "04d":
-                    iconArray[i].setImageResource(R.drawable.bbb);
+                    iconArray[(i*3)].setImageResource(R.drawable.bbb);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.bbb);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.bbb);
+
                     break;
                 case "04n":
-                    iconArray[i].setImageResource(R.drawable.bbbb);
+                    iconArray[(i*3)].setImageResource(R.drawable.bbbb);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.bbbb);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.bbbb);
+
                     break;
                 case "09d":
-                    iconArray[i].setImageResource(R.drawable.c);
+                    iconArray[(i*3)].setImageResource(R.drawable.c);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.c);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.c);
+
                     break;
                 case "09n":
-                    iconArray[i].setImageResource(R.drawable.cc);
+                    iconArray[(i*3)].setImageResource(R.drawable.cc);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.cc);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.cc);
+
                     break;
                 case "10d":
-                    iconArray[i].setImageResource(R.drawable.ccc);
+                    iconArray[(i*3)].setImageResource(R.drawable.ccc);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.ccc);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.ccc);
+
                     break;
                 case "10n":
-                    iconArray[i].setImageResource(R.drawable.cccc);
+                    iconArray[(i*3)].setImageResource(R.drawable.cccc);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.cccc);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.cccc);
+
                     break;
                 case "11d":
-                    iconArray[i].setImageResource(R.drawable.d);
+                    iconArray[(i*3)].setImageResource(R.drawable.d);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.d);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.d);
+
                     break;
                 case "11n":
-                    iconArray[i].setImageResource(R.drawable.dd);
+                    iconArray[(i*3)].setImageResource(R.drawable.dd);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.dd);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.dd);
+
                     break;
                 case "13d":
-                    iconArray[i].setImageResource(R.drawable.ddd);
+                    iconArray[(i*3)].setImageResource(R.drawable.ddd);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.ddd);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.ddd);
+
                     break;
                 case "13n":
-                    iconArray[i].setImageResource(R.drawable.dddd);
+                    iconArray[(i*3)].setImageResource(R.drawable.dddd);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.dddd);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.dddd);
+
                     break;
                 case "50d":
-                    iconArray[i].setImageResource(R.drawable.e);
+                    iconArray[(i*3)].setImageResource(R.drawable.e);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.e);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.e);
+
                     break;
                 case "50n":
-                    iconArray[i].setImageResource(R.drawable.ee);
+                    iconArray[(i*3)].setImageResource(R.drawable.ee);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.ee);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.ee);
                     break;
                 default:
                     iconArray[i].setImageResource(R.drawable.weather_cloud);
+                    iconArray[(i*3) + 1].setImageResource(R.drawable.weather_cloud);
+                    iconArray[(i*3) + 2].setImageResource(R.drawable.weather_cloud);
+
             }
         }
     }
