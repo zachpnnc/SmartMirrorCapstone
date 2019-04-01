@@ -121,8 +121,8 @@ public class WeatherExpanded extends AppCompatActivity
             JsonArray test = (JsonArray) object.getAsJsonArray("weather");
             JsonObject iconObject = (JsonObject) test.get(0);
             JsonElement iconId = iconObject.get("icon");
-
-            iconList[i] = iconId.toString();
+            String temp = iconId.toString();
+            iconList[i] = temp.replaceAll("^\"|\"$", "");
         }
         return iconList;
     }
@@ -173,12 +173,15 @@ public class WeatherExpanded extends AppCompatActivity
 
     public void loadXMLTemperatures(String[] temperatures)
     {
+        String degreeSymbol = "\u00b0";
+
         for (int i = 0; i < 12; i++)
         {
             //Instead of "hours from now" can be changed to actual time.
             //can be difficult to implement.
+
             timeArray[i].setText(i + " hours from now");
-            weatherArray[i].setText(temperatures[i]);
+            weatherArray[i].setText(temperatures[i] + degreeSymbol);
         }
     }
 
