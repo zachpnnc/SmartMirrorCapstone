@@ -28,7 +28,9 @@ public class WeatherFetch extends Activity
     private static final String OPEN_WEATHER_MAP_API_3_HOUR = "http://api.openweathermap.org/data/2.5/forecast?";
 
 
+/*
 
+ */
 
 
     public static String getAPIData3Hourly()
