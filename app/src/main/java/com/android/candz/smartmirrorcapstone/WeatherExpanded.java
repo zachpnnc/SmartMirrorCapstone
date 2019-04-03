@@ -44,22 +44,22 @@ public class WeatherExpanded extends AppCompatActivity
 
         //Can add in code to load in weather icon, and wind speeds / direction.
         loadXMLinformation(weatherDataArray);
-        WebView test = (WebView) findViewById(R.id.webViewTest);
-
-        String htmlThing = "<div id=\"openweathermap-widget-11\"></div>\n" +
-                "<script src='//openweathermap.org/themes/openweathermap/assets" +
-                "/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ?" +
-                " window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push(" +
-                "{id: 11,cityid: '4487042',appid: '28b3d92963fef3ce6717737997d698b8',units: " +
-                "'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var " +
-                "script = document.createElement('script');script.async = true;script.charset " +
-                "= \"utf-8\";script.src = \"//openweathermap.org/themes/openweathermap/assets/" +
-                "vendor/owm/js/weather-widget-generator.js\";var s = document." +
-                "getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  " +
-                "})();</script>";
-
-        WebSettings settings = test.getSettings();
-        settings.setJavaScriptEnabled(true);
+//        WebView test = (WebView) findViewById(R.id.webViewTest);
+//
+//        String htmlThing = "<div id=\"openweathermap-widget-11\"></div>\n" +
+//                "<script src='//openweathermap.org/themes/openweathermap/assets" +
+//                "/vendor/owm/js/d3.min.js'></script><script>window.myWidgetParam ?" +
+//                " window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push(" +
+//                "{id: 11,cityid: '4487042',appid: '28b3d92963fef3ce6717737997d698b8',units: " +
+//                "'imperial',containerid: 'openweathermap-widget-11',  });  (function() {var " +
+//                "script = document.createElement('script');script.async = true;script.charset " +
+//                "= \"utf-8\";script.src = \"//openweathermap.org/themes/openweathermap/assets/" +
+//                "vendor/owm/js/weather-widget-generator.js\";var s = document." +
+//                "getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  " +
+//                "})();</script>";
+//
+//        WebSettings settings = test.getSettings();
+//        settings.setJavaScriptEnabled(true);
 
     }
 
