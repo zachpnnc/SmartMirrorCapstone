@@ -208,73 +208,73 @@
         <ImageView
             android:id="@+id/iconView1"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iconView2"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iconView3"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iconView4"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iconView5"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iconView6"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iconView7"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iconView8"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iconView9"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iconView10"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iconView11"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/iconView12"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="32.3dp"
             tools:srcCompat="@tools:sample/avatars" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
