@@ -46,7 +46,7 @@ dependencies {
     //    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
     implementation 'net.aksingh:owm-japis:2.5.2.3'
     implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'android.arch.navigation:navigation-fragment:1.0.0-rc02'
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0'
     implementation 'com.google.api-client:google-api-client:1.25.0'
 
     /*
@@ -54,15 +54,12 @@ dependencies {
      */
 
     //implementation 'com.google.apis:google-api-services-calendar:v3-rev373-1.25.0'
-    implementation 'com.google.api-client:google-api-client:1.24.1'
+    implementation 'com.google.api-client:google-api-client:1.25.0'
     //implementation 'com.google.api-client:google-api-client-android:1.20.0'
     implementation 'com.google.api-client:google-api-client-android:1.24.1'
-
-    implementation 'com.google.http-client:google-http-client:1.24.1'
+    implementation 'com.google.http-client:google-http-client:1.25.0'
     implementation 'com.google.http-client:google-http-client-android:1.24.1'
-
-    implementation 'com.google.oauth-client:google-oauth-client:1.24.1'
-
+    implementation 'com.google.oauth-client:google-oauth-client:1.25.0'
     implementation 'com.google.http-client:google-http-client-gson:1.19.0'
     //implementation 'com.google.android.gms:play-services-base:10.2.0'
 

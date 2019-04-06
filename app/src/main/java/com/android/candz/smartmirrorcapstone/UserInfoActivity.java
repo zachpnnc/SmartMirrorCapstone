@@ -38,7 +38,7 @@ public class UserInfoActivity extends AppCompatActivity {
             list.add(data.getString(1)); // 1 refers to COL1 (username)
         }
 
-        ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list); // TODO
+        ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         lv.setAdapter(listAdapter);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
