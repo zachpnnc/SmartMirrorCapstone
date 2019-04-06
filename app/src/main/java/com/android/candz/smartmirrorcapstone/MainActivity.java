@@ -83,11 +83,7 @@ public class MainActivity extends AppCompatActivity implements Login
         */
 
         // NOTE: just for testing; remove when done with testing
-        if ((name.equals("admin") && password.equals("admin")) ||
-                (name.equals("") && password.equals(""))) {
-            return true;
-        }
-
-        return false;
+        return (name.equals("admin") && password.equals("admin")) ||
+                (name.equals("") && password.equals(""));
     }
 }
