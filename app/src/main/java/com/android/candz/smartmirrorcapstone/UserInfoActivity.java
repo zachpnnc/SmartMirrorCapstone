@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -61,5 +62,17 @@ public class UserInfoActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        addDataToList();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        addDataToList();
     }
 }

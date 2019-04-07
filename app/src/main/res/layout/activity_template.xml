@@ -14,7 +14,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView22"
         tools:srcCompat="@tools:sample/avatars"
         android:contentDescription="@string/template1" />
 
@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toEndOf="@+id/imageButton1"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView22"
         tools:srcCompat="@tools:sample/avatars"
         android:contentDescription="@string/template2" />
 
@@ -79,7 +79,7 @@
         android:contentDescription="@string/template6" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"

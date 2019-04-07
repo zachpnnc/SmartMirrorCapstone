@@ -1,29 +1,18 @@
 package com.android.candz.smartmirrorcapstone;
 
-import android.os.StrictMode;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.kwabenaberko.newsapilib.NewsApiClient;
 import com.kwabenaberko.newsapilib.models.request.EverythingRequest;
-import com.kwabenaberko.newsapilib.models.request.TopHeadlinesRequest;
 import com.kwabenaberko.newsapilib.models.response.ArticleResponse;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-
-import static java.lang.Thread.sleep;
 
 public class NewsFetch
 {
@@ -63,7 +52,7 @@ public class NewsFetch
     }
 
 
-    public static String[][] getNewsHeadlines() throws InterruptedException
+    public static String[][] getNewsHeadlines()
     {
 
         String jsonString = openConnectionToNewsAPI_GET();
@@ -72,21 +61,21 @@ public class NewsFetch
         {
             jsonString = openConnectionToNewsAPI_GET();
 
-            while (jsonString == "News Data unable to be retrieved")
-            {
-                if (jsonString == "News Data unable to be retrieved")
-                {
-                    jsonString = openConnectionToNewsAPI_POST();
-                }
-                if (jsonString == "News Data unable to be retrieved")
-                {
-                    jsonString = openConnectionToNewsAPI_GET();
-                }
-                if (jsonString == "News Data unable to be retrieved")
-                {
-                    Thread.sleep(5000);
-                }
-            }
+//            while (jsonString == "News Data unable to be retrieved")
+//            {
+//                if (jsonString == "News Data unable to be retrieved")
+//                {
+//                    jsonString = openConnectionToNewsAPI_POST();
+//                }
+//                if (jsonString == "News Data unable to be retrieved")
+//                {
+//                    jsonString = openConnectionToNewsAPI_GET();
+//                }
+//                if (jsonString == "News Data unable to be retrieved")
+//                {
+//                    Thread.sleep(5000);
+//                }
+//            }
         }
 
         if (jsonString == "Currently Rate Limited by NewsAPI")
@@ -95,8 +84,6 @@ public class NewsFetch
             error[0][0] = "Currently Rate Limited by NewsAPI";
             return error;
         }
-
-
         jsonObject = new JsonParser().parse(jsonString).getAsJsonObject();
         //headlineArray[0][index] = headline itself.
         //headlineArray[1][index] = headline Links.
@@ -124,12 +111,10 @@ public class NewsFetch
             String urlString = NEWS_API_STARTER + NEWS_API_POPULAR_US + NEWS_API_API_KEY;
             URL url = new URL(urlString);
 
-
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoInput(true);
 //            connection.setDoOutput(true);
-
             connection.setRequestProperty("User-Agent", "Mozilla/5.0 ( compatible ) ");
             connection.setRequestProperty("Accept", "*/*");
 
@@ -285,8 +270,6 @@ public class NewsFetch
         }
         return headlineLinksArray;
     }
-
-
 
 
 
