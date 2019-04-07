@@ -9,7 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import me.everything.providers.android.calendar.Calendar;
@@ -32,6 +34,16 @@ public final class VerticalActivity2 extends AppCompatActivity {
         display();
     }
 
+    public String[] convertTimestamp(long startTime, long endTime) {
+        Date start = new Date(startTime);
+        Date end = new Date(endTime);
+
+        String myStart = DateFormat.getInstance().format(start);
+        String myEnd = DateFormat.getInstance().format(end);
+
+        return new String[]{myStart, myEnd};
+    }
+
     public void display() {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
@@ -49,12 +61,15 @@ public final class VerticalActivity2 extends AppCompatActivity {
         Data<Event> eventList = calendarProvider.getEvents(calendarId);
         List<Event> events = eventList.getList();
 
-        List<String> eventTitles = new ArrayList<>();
+        List<EventView> eventViews = new ArrayList<>();
+        EventView eventView;
         for (Event event : events) {
-            eventTitles.add(event.title);
+            String[] times = convertTimestamp(event.dTStart, event.dTend);
+            eventView = new EventView(event.title, event.eventLocation, times);
+            eventViews.add(eventView);
         }
 
-        ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, eventTitles);
+        ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, eventViews);
         calendar_event_view.setAdapter(listAdapter);
     }
 }
