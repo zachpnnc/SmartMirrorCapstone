@@ -8,8 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import org.joda.time.DateTime;
 
 import java.text.DateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,6 +26,8 @@ import me.everything.providers.core.Data;
 public final class VerticalActivity2 extends AppCompatActivity {
     private int callbackId;
     private ListView calendar_event_view;
+    private java.util.Calendar calendar;
+    private int currentDay;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,9 @@ public final class VerticalActivity2 extends AppCompatActivity {
         callbackId = 42;
 
         calendar_event_view = findViewById(R.id.calendar_event_view);
+
+        calendar = java.util.Calendar.getInstance();
+        currentDay = calendar.get(java.util.Calendar.DAY_OF_YEAR);
 
         display();
     }
@@ -42,6 +51,19 @@ public final class VerticalActivity2 extends AppCompatActivity {
         String myEnd = DateFormat.getInstance().format(end);
 
         return new String[]{myStart, myEnd};
+    }
+
+    /*
+     * eventIsCurrentDate
+     *
+     * Checks the start date of an event.
+     *
+     * @return true if the event day is the current day.
+     */
+    public boolean eventIsCurrentDate(Event event) {
+        DateTime dateTime = new DateTime(event.dTStart);
+        int eventDay = dateTime.getDayOfYear();
+        return eventDay == currentDay;
     }
 
     public void display() {
@@ -66,7 +88,13 @@ public final class VerticalActivity2 extends AppCompatActivity {
         for (Event event : events) {
             String[] times = convertTimestamp(event.dTStart, event.dTend);
             eventView = new EventView(event.title, event.eventLocation, times);
-            eventViews.add(eventView);
+
+            // only adds event to the view if the event is for the current day
+            if (eventIsCurrentDate(event)) {
+                eventViews.add(eventView);
+            } else {
+                // TODO: display events from nearby dates or display no events
+            }
         }
 
         ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, eventViews);
