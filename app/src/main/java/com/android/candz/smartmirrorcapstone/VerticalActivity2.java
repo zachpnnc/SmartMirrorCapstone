@@ -54,6 +54,29 @@ public final class VerticalActivity2 extends AppCompatActivity {
     }
 
     /*
+     * eventIsNearbyDate
+     *
+     * Checks the start date of an event.
+     *
+     * @return true if the event day is, or is nearby the current day
+     * within 2 days after the current day.
+     */
+    public boolean eventIsNearbyDate(Event event) {
+        DateTime dateTime = new DateTime(event.dTStart);
+        int eventDay = dateTime.getDayOfYear();
+
+        int[] nearbyDates = {currentDay, currentDay + 1, currentDay + 2};
+
+        for (int date : nearbyDates) {
+            if (date == eventDay) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /*
      * eventIsCurrentDate
      *
      * Checks the start date of an event.
@@ -89,11 +112,17 @@ public final class VerticalActivity2 extends AppCompatActivity {
             String[] times = convertTimestamp(event.dTStart, event.dTend);
             eventView = new EventView(event.title, event.eventLocation, times);
 
-            // only adds event to the view if the event is for the current day
-            if (eventIsCurrentDate(event)) {
+            /*
+             * TODO: Reverse the order of the events in the list so
+             *       that the most recent event is displayed first.
+             */
+
+            // Only adds event to the view if the event is for the current day
+            // or within 2 days after the current day.
+            if (eventIsNearbyDate(event)) {
                 eventViews.add(eventView);
             } else {
-                // TODO: display events from nearby dates or display no events
+                // do nothing?
             }
         }
 
