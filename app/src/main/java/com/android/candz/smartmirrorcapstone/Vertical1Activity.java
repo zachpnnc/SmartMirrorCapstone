@@ -38,7 +38,12 @@ public class Vertical1Activity extends AppCompatActivity
     private Button weatherText;
     private ImageButton weatherIcon;
     private Button[] headlineButtons;
+
+
+
+    private static int buttonSelected;
     private JsonObject jsonWeatherData;
+
 
 
 
@@ -373,8 +378,9 @@ public class Vertical1Activity extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][0]));
-                    startActivity(browserIntent);
+                    buttonSelected = 0;
+                    Intent weatherExpandedIntent = new Intent(getApplicationContext(), NewsExpanded.class);
+                    startActivity(weatherExpandedIntent);
                 }
             });
 
@@ -383,6 +389,7 @@ public class Vertical1Activity extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
+                    buttonSelected = 1;
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][1]));
                     startActivity(browserIntent);
                 }
@@ -393,6 +400,8 @@ public class Vertical1Activity extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
+                    buttonSelected = 2;
+
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][2]));
                     startActivity(browserIntent);
                 }
@@ -403,6 +412,8 @@ public class Vertical1Activity extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
+                    buttonSelected = 3;
+
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][3]));
                     startActivity(browserIntent);
                 }
@@ -413,6 +424,7 @@ public class Vertical1Activity extends AppCompatActivity
                 @Override
                 public void onClick(View v)
                 {
+                    buttonSelected = 4;
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][4]));
                     startActivity(browserIntent);
                 }
@@ -510,5 +522,10 @@ public class Vertical1Activity extends AppCompatActivity
     public static double getLongitude()
     {
         return longitude;
+    }
+
+    public static int getButtonSelected()
+    {
+        return buttonSelected;
     }
 }

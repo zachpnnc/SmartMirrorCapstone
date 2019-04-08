@@ -44,6 +44,7 @@
         <activity android:name=".EditUserInfoActivity" />
         <activity android:name=".VerticalActivity2"/>
         <activity android:name=".WeatherExpanded"></activity>
+        <activity android:name=".NewsExpanded"></activity>
     </application>
 
 </manifest>

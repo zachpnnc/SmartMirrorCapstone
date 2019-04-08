@@ -22,7 +22,15 @@ public class NewsFetch
     private static final String NEWS_API_POPULAR_US = "top-headlines?country=us";
     private static final String NEWS_API_API_KEY = "&apiKey=0673baac4f99445aa1d890e7cfe65a7b";
     private static final String NEWS_API_API_KEY_ALONE = "0673baac4f99445aa1d890e7cfe65a7b";
+
+
+
     private static JsonObject jsonObject;
+
+
+
+    private static String headlineArray[][];
+
     //Sample API call https://newsapi.org/v2/  0673baac4f99445aa1d890e7cfe65a7b
     //https://newsapi.org/v2/top-headlines?country=us&apiKey=0673baac4f99445aa1d890e7cfe65a7b
 
@@ -87,7 +95,7 @@ public class NewsFetch
         jsonObject = new JsonParser().parse(jsonString).getAsJsonObject();
         //headlineArray[0][index] = headline itself.
         //headlineArray[1][index] = headline Links.
-        String[][] headlineArray = new String[2][5];
+        headlineArray = new String[2][5];
         headlineArray[0] = parseJsonForHeadlines();
         headlineArray[1] = parseJsonForHeadlineLinks();
 
@@ -271,6 +279,14 @@ public class NewsFetch
         return headlineLinksArray;
     }
 
+    public static String[][] getHeadlineArray()
+    {
+        return headlineArray;
+    }
 
+    public static JsonObject getJsonObject()
+    {
+        return jsonObject;
+    }
 
 }
