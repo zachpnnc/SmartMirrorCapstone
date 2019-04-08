@@ -1,5 +1,6 @@
 package com.android.candz.smartmirrorcapstone;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.squareup.picasso.Picasso;
 
 public class NewsExpanded extends AppCompatActivity
 {
@@ -31,6 +33,7 @@ public class NewsExpanded extends AppCompatActivity
         headline = findViewById(R.id.weatherTextView1);
         description = findViewById(R.id.weatherTextView2);
         content = findViewById(R.id.weatherTextView3);
+//        headlineImage = getHeadlineImage();
 
         headline.setText(headlineArray[0][headlineSelected]);
         description.setText(getDescriptionFromJson());
@@ -62,4 +65,12 @@ public class NewsExpanded extends AppCompatActivity
         linkPreTrim = jsonArrayObject.get("content").toString();
         return linkPreTrim.replaceAll("^\"|\"$", "");
     }
+
+//    public void getHeadlineImage()
+//    {
+//        String url;
+//        Context text = this.getApplicationContext();
+//        Picasso.with(text).load("http://i.imgur.com/DvpvklR.png").into(headlineImage);
+//
+//    }
 }

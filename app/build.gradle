@@ -48,6 +48,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'android.arch.navigation:navigation-fragment:1.0.0'
     implementation 'com.google.api-client:google-api-client:1.25.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
     /*
      * **********For calendar**********
