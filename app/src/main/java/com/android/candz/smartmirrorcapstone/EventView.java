@@ -13,6 +13,14 @@ public class EventView {
         this.eventTime = eventTime;
     }
 
+    public String getTitle() {
+        return eventName;
+    }
+
+    public String getTime() {
+        return eventTime[0] + " - " + eventTime[1];
+    }
+
     @NonNull
     @Override
     public String toString() {

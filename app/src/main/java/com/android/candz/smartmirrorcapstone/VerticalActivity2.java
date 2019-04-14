@@ -8,14 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import java.util.Date;
 import org.joda.time.DateTime;
-
 import java.text.DateFormat;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import me.everything.providers.android.calendar.Calendar;
@@ -26,7 +24,6 @@ import me.everything.providers.core.Data;
 public final class VerticalActivity2 extends AppCompatActivity {
     private int callbackId;
     private ListView calendar_event_view;
-    private java.util.Calendar calendar;
     private int currentDay;
 
     @Override
@@ -37,7 +34,7 @@ public final class VerticalActivity2 extends AppCompatActivity {
 
         calendar_event_view = findViewById(R.id.calendar_event_view);
 
-        calendar = java.util.Calendar.getInstance();
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
         currentDay = calendar.get(java.util.Calendar.DAY_OF_YEAR);
 
         display();
@@ -81,6 +78,9 @@ public final class VerticalActivity2 extends AppCompatActivity {
      *
      * Checks the start date of an event.
      *
+     * NOTE: Is not currently used, but is a good method
+     *       to have if the specifications change.
+     *
      * @return true if the event day is the current day.
      */
     public boolean eventIsCurrentDate(Event event) {
@@ -106,27 +106,25 @@ public final class VerticalActivity2 extends AppCompatActivity {
         Data<Event> eventList = calendarProvider.getEvents(calendarId);
         List<Event> events = eventList.getList();
 
-        List<EventView> eventViews = new ArrayList<>();
+        //List<EventView> eventViews = new ArrayList<>();
+        ArrayList<EventView> eventViews = new ArrayList<>();
         EventView eventView;
         for (Event event : events) {
             String[] times = convertTimestamp(event.dTStart, event.dTend);
             eventView = new EventView(event.title, event.eventLocation, times);
-
-            /*
-             * TODO: Reverse the order of the events in the list so
-             *       that the most recent event is displayed first.
-             */
-
             // Only adds event to the view if the event is for the current day
             // or within 2 days after the current day.
             if (eventIsNearbyDate(event)) {
                 eventViews.add(eventView);
             } else {
-                // do nothing?
+                // do something?
             }
         }
 
-        ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, eventViews);
-        calendar_event_view.setAdapter(listAdapter);
+        // NOTE: events are added to the list in the order of when they were added in the calendar
+        //ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, eventViews);
+        //calendar_event_view.setAdapter(listAdapter);
+
+        calendar_event_view.setAdapter(new CustomCalendarListAdapter(this, eventViews));
     }
 }
