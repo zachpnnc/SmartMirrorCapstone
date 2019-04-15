@@ -114,6 +114,7 @@ public class Vertical1Activity extends AppCompatActivity
      *
      * Checks the start date of an event.
      *
+     * @param event - a calendar event
      * @return true if the event day is, or is nearby the current day
      * within 2 days after the current day.
      */
@@ -161,6 +162,7 @@ public class Vertical1Activity extends AppCompatActivity
      * NOTE: Is not currently used, but is a good method
      *       to have if the specifications change.
      *
+     * @param event - a calendar event
      * @return true if the event day is the current day.
      */
     public boolean eventIsCurrentDate(Event event) {
@@ -169,6 +171,12 @@ public class Vertical1Activity extends AppCompatActivity
         return eventDay == currentDay;
     }
 
+    /*
+     * handleCalendar
+     *
+     * Handles a device's calendar events by displaying
+     * them to the user.
+     */
     public void handleCalendar()
     {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
@@ -186,25 +194,22 @@ public class Vertical1Activity extends AppCompatActivity
         Data<Event> eventList = calendarProvider.getEvents(calendarId);
         List<Event> events = eventList.getList();
 
-        //List<EventView> eventViews = new ArrayList<>();
         ArrayList<EventView> eventViews = new ArrayList<>();
         EventView eventView;
         for (Event event : events) {
             String[] times = convertTimestamp(event.dTStart, event.dTend);
             eventView = new EventView(event.title, event.eventLocation, times);
+
             // Only adds event to the view if the event is for the current day
             // or within 2 days after the current day.
             if (eventIsNearbyDate(event)) {
                 eventViews.add(eventView);
             } else {
-                // do something?
+                // TODO: do something?
             }
         }
 
         // NOTE: events are added to the list in the order of when they were added in the calendar
-        //ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, eventViews);
-        //calendar_event_view.setAdapter(listAdapter);
-
         calendar_event_view.setAdapter(new CustomCalendarListAdapter(this, eventViews));
     }
 

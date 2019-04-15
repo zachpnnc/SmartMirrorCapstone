@@ -5,11 +5,16 @@
     android:orientation="horizontal"
     android:padding="5dip" >
 
+    <!--
+    Any styling for the calendar events can either
+    go here or reference a custom xml style.
+    -->
     <TextView
         android:id="@+id/event_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
+        android:textColor="#ffffff"
         android:typeface="sans" />
 
     <TextView
@@ -18,6 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/event_title"
         android:layout_marginTop="5dip"
-        android:textColor="#343434"
+        android:textColor="#d6d6d6"
         android:textSize="12sp" />
 </RelativeLayout>
