@@ -42,7 +42,6 @@
         <activity android:name=".UserInfoActivity"></activity>
 
         <activity android:name=".EditUserInfoActivity" />
-        <activity android:name=".VerticalActivity2"/>
         <activity android:name=".WeatherExpanded"></activity>
     </application>
 

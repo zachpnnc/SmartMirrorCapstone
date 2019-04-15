@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
@@ -18,15 +19,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 
+import org.joda.time.DateTime;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import me.everything.providers.android.calendar.CalendarProvider;
+import me.everything.providers.android.calendar.Event;
+import me.everything.providers.core.Data;
 
 
 public class Vertical1Activity extends AppCompatActivity
@@ -52,6 +62,10 @@ public class Vertical1Activity extends AppCompatActivity
     boolean run = true; //set it to false if you want to stop the timer
     Handler mHandler = new Handler();
 
+    private int callbackId;
+    private ListView calendar_event_view;
+    private int currentDay;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -59,6 +73,13 @@ public class Vertical1Activity extends AppCompatActivity
         setContentView(R.layout.activity_vertical1);
 
         // handles the calendar
+        callbackId = 42;
+
+        calendar_event_view = findViewById(R.id.calendar_event_view);
+
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
+        currentDay = calendar.get(java.util.Calendar.DAY_OF_YEAR);
+
         handleCalendar();
 
         //Handles instantiating all of the .XML items.
@@ -88,9 +109,103 @@ public class Vertical1Activity extends AppCompatActivity
 
     }
 
+    /*
+     * eventIsNearbyDate
+     *
+     * Checks the start date of an event.
+     *
+     * @return true if the event day is, or is nearby the current day
+     * within 2 days after the current day.
+     */
+    public boolean eventIsNearbyDate(Event event) {
+        DateTime dateTime = new DateTime(event.dTStart);
+        int eventDay = dateTime.getDayOfYear();
+
+        int[] nearbyDates = {currentDay, currentDay + 1, currentDay + 2};
+
+        for (int date : nearbyDates) {
+            if (date == eventDay) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /*
+     * convertTimestamp
+     *
+     * Converts a UNIX timestamp for a starting time and an ending
+     * time to a simple String date display.
+     *
+     * @param startTime - the start time of an event as a UNIX timestamp
+     * @param endTime - the end time of an event as a UNIX timestamp
+     * @return new String[] - returns the starting and ending times
+     * in a a String array.
+     */
+    public String[] convertTimestamp(long startTime, long endTime) {
+        Date start = new Date(startTime);
+        Date end = new Date(endTime);
+
+        String myStart = DateFormat.getInstance().format(start);
+        String myEnd = DateFormat.getInstance().format(end);
+
+        return new String[]{myStart, myEnd};
+    }
+
+    /*
+     * eventIsCurrentDate
+     *
+     * Checks the start date of an event.
+     *
+     * NOTE: Is not currently used, but is a good method
+     *       to have if the specifications change.
+     *
+     * @return true if the event day is the current day.
+     */
+    public boolean eventIsCurrentDate(Event event) {
+        DateTime dateTime = new DateTime(event.dTStart);
+        int eventDay = dateTime.getDayOfYear();
+        return eventDay == currentDay;
+    }
+
     public void handleCalendar()
     {
-        // TODO
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CALENDAR}, callbackId);
+        }
+
+        CalendarProvider calendarProvider = new CalendarProvider(this);
+        List<me.everything.providers.android.calendar.Calendar> calendars = calendarProvider.getCalendars().getList();
+
+        // TODO: decide which calendar will be displayed
+        me.everything.providers.android.calendar.Calendar mainCalendar = calendars.get(1);
+
+        long calendarId = mainCalendar.id;
+
+        Data<Event> eventList = calendarProvider.getEvents(calendarId);
+        List<Event> events = eventList.getList();
+
+        //List<EventView> eventViews = new ArrayList<>();
+        ArrayList<EventView> eventViews = new ArrayList<>();
+        EventView eventView;
+        for (Event event : events) {
+            String[] times = convertTimestamp(event.dTStart, event.dTend);
+            eventView = new EventView(event.title, event.eventLocation, times);
+            // Only adds event to the view if the event is for the current day
+            // or within 2 days after the current day.
+            if (eventIsNearbyDate(event)) {
+                eventViews.add(eventView);
+            } else {
+                // do something?
+            }
+        }
+
+        // NOTE: events are added to the list in the order of when they were added in the calendar
+        //ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, eventViews);
+        //calendar_event_view.setAdapter(listAdapter);
+
+        calendar_event_view.setAdapter(new CustomCalendarListAdapter(this, eventViews));
     }
 
 
