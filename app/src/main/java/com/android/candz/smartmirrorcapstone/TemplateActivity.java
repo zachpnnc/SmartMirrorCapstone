@@ -48,8 +48,6 @@ public class TemplateActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Toast.makeText(getApplicationContext(), "Moving to Template 2", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(TemplateActivity.this, VerticalActivity2.class);
-                startActivity(intent);
             }
         });
 
