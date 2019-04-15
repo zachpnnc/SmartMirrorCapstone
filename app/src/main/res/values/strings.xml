@@ -16,4 +16,9 @@
     <string name="template5">template5</string>
     <string name="template6">template6</string>
     <string name="open_weather_maps_app_id">28b3d92963fef3ce6717737997d698b8</string>
+
+    <string name="user_info_users">Users</string>
+    <string name="confirm_password">Confirm\nPassword</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
 </resources>
