@@ -17,6 +17,13 @@ public class TemplateActivity extends AppCompatActivity
     private ImageButton template5;
     private ImageButton template6;
 
+    public static int getTemplate()
+    {
+        return template;
+    }
+
+    private static int template;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -37,6 +44,7 @@ public class TemplateActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 Toast.makeText(getApplicationContext(), "Moving to Template 1", Toast.LENGTH_SHORT).show();
+                template = 1;
                 Intent intent = new Intent(TemplateActivity.this, Vertical1Activity.class);
                 startActivity(intent);
             }

@@ -75,7 +75,8 @@ public class Vertical1Activity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vertical1);
+        if(TemplateActivity.getTemplate() == 1)
+            setContentView(R.layout.activity_vertical1);
 
         // handles the calendar
         callbackId = 42;
