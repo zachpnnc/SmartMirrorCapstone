@@ -49,7 +49,7 @@ public class Vertical1Activity extends AppCompatActivity
     private ImageButton weatherIcon;
     private Button[] headlineButtons;
 
-
+    private static final int CALENDAR_ID = 1;
 
     private static int buttonSelected;
     private JsonObject jsonWeatherData;
@@ -193,7 +193,7 @@ public class Vertical1Activity extends AppCompatActivity
         List<me.everything.providers.android.calendar.Calendar> calendars = calendarProvider.getCalendars().getList();
 
         // TODO: decide which calendar will be displayed
-        me.everything.providers.android.calendar.Calendar mainCalendar = calendars.get(1);
+        me.everything.providers.android.calendar.Calendar mainCalendar = calendars.get(CALENDAR_ID);
 
         long calendarId = mainCalendar.id;
 

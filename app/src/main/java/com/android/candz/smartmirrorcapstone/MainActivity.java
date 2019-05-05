@@ -57,9 +57,6 @@ public class MainActivity extends AppCompatActivity implements Login
     public boolean checkLogin(String username, String password)
     {
         String name = username.toLowerCase();
-
-        // NOTE: uncomment when done with testing
-        /*
         String message = "You must enter in a valid username and password.\n" +
                 "Or, select a valid user from the User Info page and enter in the correct password";
 
@@ -80,10 +77,7 @@ public class MainActivity extends AppCompatActivity implements Login
                 }
             }
         }
-        */
+        return false;
 
-        // NOTE: just for testing; remove when done with testing
-        return (name.equals("admin") && password.equals("admin")) ||
-                (name.equals("") && password.equals(""));
     }
 }
