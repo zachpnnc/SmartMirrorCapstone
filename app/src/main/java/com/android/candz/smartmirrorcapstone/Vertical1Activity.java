@@ -307,6 +307,8 @@ public class Vertical1Activity extends AppCompatActivity
     {
         View view = this.getWindow().getDecorView();
         view.setBackgroundColor(0x000000);
+        weatherText.setBackgroundColor(0x000000);
+        weatherIcon.setBackgroundColor(0x000000);
     }
 
     private void setTextColor(TextView dateText, TextView timeText)
