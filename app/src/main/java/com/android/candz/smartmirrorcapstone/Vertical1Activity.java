@@ -502,8 +502,8 @@ public class Vertical1Activity extends AppCompatActivity
                 public void onClick(View v)
                 {
                     buttonSelected = 0;
-                    Intent weatherExpandedIntent = new Intent(getApplicationContext(), NewsExpanded.class);
-                    startActivity(weatherExpandedIntent);
+                    Intent newsExpandedIntent = new Intent(getApplicationContext(), NewsExpanded.class);
+                    startActivity(newsExpandedIntent);
                 }
             });
 
@@ -513,8 +513,8 @@ public class Vertical1Activity extends AppCompatActivity
                 public void onClick(View v)
                 {
                     buttonSelected = 1;
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][1]));
-                    startActivity(browserIntent);
+                    Intent newsExpandedIntent = new Intent(getApplicationContext(), NewsExpanded.class);
+                    startActivity(newsExpandedIntent);
                 }
             });
 
@@ -525,8 +525,8 @@ public class Vertical1Activity extends AppCompatActivity
                 {
                     buttonSelected = 2;
 
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][2]));
-                    startActivity(browserIntent);
+                    Intent newsExpandedIntent = new Intent(getApplicationContext(), NewsExpanded.class);
+                    startActivity(newsExpandedIntent);
                 }
             });
 
@@ -537,8 +537,8 @@ public class Vertical1Activity extends AppCompatActivity
                 {
                     buttonSelected = 3;
 
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][3]));
-                    startActivity(browserIntent);
+                    Intent newsExpandedIntent = new Intent(getApplicationContext(), NewsExpanded.class);
+                    startActivity(newsExpandedIntent);
                 }
             });
 
@@ -548,8 +548,8 @@ public class Vertical1Activity extends AppCompatActivity
                 public void onClick(View v)
                 {
                     buttonSelected = 4;
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(headlineArray[1][4]));
-                    startActivity(browserIntent);
+                    Intent newsExpandedIntent = new Intent(getApplicationContext(), NewsExpanded.class);
+                    startActivity(newsExpandedIntent);
                 }
             });
         }

@@ -2,6 +2,7 @@ package com.android.candz.smartmirrorcapstone;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,6 +62,9 @@ public class WeatherExpanded extends AppCompatActivity
 
     public void instantiateXML()
     {
+        View view = this.getWindow().getDecorView();
+        view.setBackgroundColor(0x000000);
+
         timeArray[0] = findViewById(R.id.textView1);
         timeArray[1] = findViewById(R.id.textView2);
         timeArray[2] = findViewById(R.id.textView3);
@@ -195,6 +199,9 @@ public class WeatherExpanded extends AppCompatActivity
 
             timeArray[i].setText(i + " hours from now");
             weatherArray[i].setText(temperatures[i] + degreeSymbol);
+//            timeArray[i].setTextColor(0xffffff);
+//            weatherArray[i].setTextColor(0xffffff);
+
         }
     }
 

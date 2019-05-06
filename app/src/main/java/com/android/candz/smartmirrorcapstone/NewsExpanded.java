@@ -3,6 +3,7 @@ package com.android.candz.smartmirrorcapstone;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,15 +30,23 @@ public class NewsExpanded extends AppCompatActivity
         int headlineSelected = Vertical1Activity.getButtonSelected();
         jsonObject = NewsFetch.getJsonObject();
 
+        View view = this.getWindow().getDecorView();
+        view.setBackgroundColor(0x000000);
+
+
 
         headline = findViewById(R.id.weatherTextView1);
         description = findViewById(R.id.weatherTextView2);
         content = findViewById(R.id.weatherTextView3);
 //        headlineImage = getHeadlineImage();
 
+
+
         headline.setText(headlineArray[0][headlineSelected]);
         description.setText(getDescriptionFromJson());
         content.setText(getContentFromJson());
+
+
 
 
     }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,9 +7,9 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="119dp"
-        android:layout_height="403dp"
-        android:layout_marginStart="36dp"
+        android:layout_width="136dp"
+        android:layout_height="662dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
@@ -28,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
@@ -35,6 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
@@ -42,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
@@ -49,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
@@ -56,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
@@ -63,6 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
@@ -70,6 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
@@ -77,6 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
@@ -84,6 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
@@ -91,6 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
@@ -98,13 +108,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="110dp"
-        android:layout_height="405dp"
+        android:layout_width="103dp"
+        android:layout_height="690dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
@@ -114,167 +125,227 @@
         <TextView
             android:id="@+id/textView13"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView15"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView18"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView19"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView20"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView21"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView22"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView23"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView24"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:text="TextView"
+            android:textColor="#ffffff"
             android:textSize="24sp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="64dp"
-        android:layout_height="405dp"
+    <!--<LinearLayout-->
+    <!--android:layout_width="123dp"-->
+    <!--android:layout_height="662dp"-->
+    <!--android:layout_marginTop="260dp"-->
+    <!--android:orientation="vertical"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/linearLayout2"-->
+    <!--app:layout_constraintTop_toTopOf="parent">-->
+
+
+    <ImageView
+        android:id="@+id/iconView1"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
-        android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@+id/linearLayout2"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
+    <ImageView
+        android:id="@+id/iconView2"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/iconView1"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/iconView1"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/iconView3"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/iconView2"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/iconView2"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/iconView4"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/iconView3"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/iconView3"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/iconView5"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/iconView4"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/iconView4"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/iconView6"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/iconView5"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/iconView5"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/iconView7"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/iconView6"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/iconView6"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/iconView8"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/iconView7"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/iconView7"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/iconView9"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/iconView8"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/iconView8"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/iconView10"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/iconView9"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/iconView9"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
+    <ImageView
+        android:id="@+id/iconView11"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/iconView10"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/iconView10"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <ImageView
-            android:id="@+id/iconView11"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <ImageView
-            android:id="@+id/iconView12"
-            android:layout_width="match_parent"
-            android:layout_height="32.3dp"
-            tools:srcCompat="@tools:sample/avatars" />
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/iconView12"
+        android:layout_width="98dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/iconView11"
+        tools:srcCompat="@tools:sample/avatars" />
+    <!--</LinearLayout>-->
 </android.support.constraint.ConstraintLayout>
