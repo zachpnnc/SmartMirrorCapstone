@@ -8,8 +8,8 @@
 
     <DigitalClock
         android:id="@+id/simpleDigitalClock"
-        android:layout_width="143dp"
-        android:layout_height="80dp"
+        android:layout_width="215dp"
+        android:layout_height="86dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:padding="20dp"
